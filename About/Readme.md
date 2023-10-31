@@ -1,5 +1,5 @@
 # About
 
-> pwd : about.html
+> pwd : about.md
 
 ## License
