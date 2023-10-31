@@ -13,13 +13,13 @@
 
 ## 🦀 Rust
 
-- [👒 欢迎进入 Rust](Rust/) 
+- [👒 欢迎进入 Rust](/Rust/) 
 
 ## 🐍 Python
 
 ### Python 测试页面
 
-- [👒 欢迎进入 Python](Python/) 
+- [👒 欢迎进入 Python](/Python/) 
 
 ## 🐹 Golang
 
