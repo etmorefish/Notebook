@@ -1,6 +1,16 @@
 # 	Flask + Gunicorn + supervisor
 
-> 假设你的项目目录下面有以下文件
+## 前言: Python Web 部署结构
+
+对于生产环境，部署 Python Web 应用基本上都要用到·`Web Server` 和 `WSGI server`,如下是它们之间的联系
+
+![](https://cdn.jsdelivr.net/gh/etmorefish/picbed@main/python_web_struct.png)
+
+> 这里Web server用于接收客户端的 http 请求，然后返回处理后的结果。目前主流的是`Nginx`,其占用内存少，并发能力强，在同类的web服务器中表现得最好。
+
+> ### 对于部署flask应用，比较推荐的方式是：Nginx + Gunicorn + Flask。
+
+> 本教程由于n'gin'x只作为代理所以略过，假设你的项目目录下面有以下文件
 
 ## 项目初始化
 
