@@ -5,5 +5,5 @@
   - [🥭 Linux](/README?id=🥭-Linux)
   - [🚀 计算机基础](/README?id=🚀-计算机基础)
   - [🐋 刷题 OJ](/README?id=🐋-刷题-oj)
-  - [✉️ 联系作者](/README?id=📱-联系作者)
+  - [📱 联系作者](/README?id=📱-联系作者)
 - [<span class="iconfont icon-wodeguanzhu"></span> 关于本站](/About/)
