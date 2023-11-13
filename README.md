@@ -18,18 +18,23 @@
 ## 🐍 Python
 
 - [👒 欢迎进入 Python](/Python/) 
-  - [生产部署：Nginx + Flask + Gunicorn + Supervisord](/Python/deploy/flask部署.md)
-  - [Celery + Redis 定时任务部署](/Python/deploy/celery部署.md)
+  - [生产部署：Nginx + Flask + Gunicorn + Supervisord](/Python/deploy/flask_deploy.md)
+  - [Celery + Redis 定时任务部署](/Python/deploy/celery_deploy.md)
 
 ## 🐹 Golang
 
 ## 🐧 Linux
+- [点击进入](/Linux/)
 
 ## 🍎 Mac
 
 # 🤖 AI
 
-## 📚深度学习
+## 📚 ML
+
+# 🧰 Tool Kit
+
+- [点击进入](/ToolKit/)
 
 # 📱联系作者
 > wechat: xxml_xyz

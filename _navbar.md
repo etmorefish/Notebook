@@ -6,5 +6,6 @@
   - [🚀 计算机基础](/README?id=🚀-计算机基础)
   - [🐋 刷题 OJ](/README?id=🐋-刷题-oj)
   - [📱 联系作者](/README?id=📱-联系作者)
-- [<span class="iconfont icon-torch"></span> ChatGPT](https://chat.maolei.space/)
+- [<span class="iconify" data-icon="arcticons:openai-chatgpt"></span> ChatGPT](https://chat.maolei.space/)
 - [<span class="iconfont icon-wodeguanzhu"></span> 关于本站](/About/)
+- <span class="iconify" data-icon="flag:cn-4x3"></span>
