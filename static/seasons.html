@@ -1,0 +1,630 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>jiaoan《春夏秋冬》教案</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4fc3f2e2-babc-4909-9f5a-88ed22b79881" class="page sans"><header><h1 class="page-title">jiaoan《春夏秋冬》教案</h1></header><div class="page-body"><nav id="d56c0355-23e7-4207-8726-3e0b7938d43f" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#049b2102-3960-4b37-9fc2-ede35de67308">课程介绍</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e8e255f1-0719-41b3-a277-3548c33812f1">课程重难点</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0425a777-c657-4942-b05d-84d480c887db">教学步骤</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a3adfe38-7fef-4cb9-9640-42bcfd9b55fb">一、课程复习（5mins）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#89cbaa69-e940-40f9-ba80-96c831cfa537">二、课程活动（10mins）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#63409de2-038b-4433-b159-8fdee9f447c6">1.课程导入（5mins）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#00843cce-1440-4451-8122-694fb30b7b30">2.项目展示（2mins）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#026b6d70-4356-4a7b-926e-7013e8d2ade2">3.思维导图讲解（3mins）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4cdd50ed-b596-4566-89ff-1c5efa48318f">三、项目讲解（50mins）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#daaf0efd-a7b6-4a2b-9c94-9458a778a9cd">1.界面介绍（10mins）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#01924d2b-a614-4ebd-a866-47ace18c688e">2.添加角色及背景（5mins）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#f7c7fd8b-fca4-4c5e-b461-5f462fdbb553">3.调整角色大小（3mins）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#8512091c-8f86-4b5c-89cd-9d0bbd9204b8">4.事件概念（5mins）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#31742a7c-ed1b-4891-b9f4-9872e26fbdd3">5.点击舞台，背景切换（5mins)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#a6352926-a9a0-43f2-9502-12af8e129c2d">6.依据不同的背景，【四季兔】切换至相应造型(10mins)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#27a2005c-0bb3-42c6-b456-d34c45791315">7.初始化背景(5mins)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#869ca17d-72e4-47d3-834a-e531e402b192">8.添加背景音乐(7mins)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#c92420d9-69e6-41fd-94c5-0dff29e8e387">9.保存并分享作品</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#ad02bd6a-8a06-4fee-8ced-166db3c19a3c">10.讲解四季为什么会产生以及每个季节的特点。(10min)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cf6746f7-f1ee-4f05-b069-77b78f76adeb">四、课后总结(5mins)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#85310da7-cedc-4173-ba2e-c420a40eb95f">1.知识点总结</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#e55e1ffb-4781-4ad2-868a-7f0d67169634">2.随堂测试</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#3489afc5-ceef-4135-8004-d88c793a2939">3.拓展与作业</a></div></nav><h1 id="049b2102-3960-4b37-9fc2-ede35de67308" class="">课程介绍</h1><ul id="ed840dc8-1b72-4daf-a134-64668fd6faed" class="bulleted-list"><li>一年有四个季节，随着四季的更替我们也要换上合适季节的衣服，本次课程我们将制作一个动画，让小兔子随着季节的变化换上合适的衣服。</li></ul><figure id="732a7e09-493e-4944-ae0a-91f8d0bbf879" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled.png"><img style="width:435px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled.png"/></a></figure><h1 id="e8e255f1-0719-41b3-a277-3548c33812f1" class="">课程重难点</h1><ol id="03e393cd-1539-441d-84e0-779c917d0793" class="numbered-list" start="1"><li>了解编程基础知识及界面介绍</li></ol><ol id="9e3c6fd3-8807-4917-918d-0ed4c36fdcf7" class="numbered-list" start="2"><li>了解事件概念</li></ol><ol id="fab08dd3-7193-4116-bcf8-c423e41010f9" class="numbered-list" start="3"><li>造型切换及背景切换</li></ol><ol id="d709dba3-03f4-4c36-8198-6e228793971f" class="numbered-list" start="4"><li>实现背景切换与角色造型相配合</li></ol><h1 id="0425a777-c657-4942-b05d-84d480c887db" class="">教学步骤</h1><h2 id="a3adfe38-7fef-4cb9-9640-42bcfd9b55fb" class="">一、课程复习（5mins）</h2><ul id="f144a49a-9e76-44fc-b393-6018542e1948" class="bulleted-list"><li>如果上过体验课可以复习相关知识。第一次上课则跳过复习的环节。</li></ul><h2 id="89cbaa69-e940-40f9-ba80-96c831cfa537" class="">二、课程活动（10mins）</h2><h3 id="63409de2-038b-4433-b159-8fdee9f447c6" class="">1.课程导入（5mins）</h3><ul id="1947899d-4824-4c67-85d7-012b5bf29639" class="bulleted-list"><li>老师自我介绍+学生自我介绍。（学生之间相互认识，让学生自我介绍时可以提出介绍要求，例如：姓名+年级+爱好，避免学生不知道如何介绍自己。）</li></ul><ul id="c6953843-4c4b-40fa-a6fd-1ec9a8125a5d" class="bulleted-list"><li>通过PPT上的谜语进行项目引入，引出今天的课程主题。</li></ul><h3 id="00843cce-1440-4451-8122-694fb30b7b30" class="">2.项目展示（2mins）</h3><ul id="2b352e13-01e1-480d-a6de-ce5f360b55cd" class="bulleted-list"><li>教师先在编辑器中展示作品效果，讲解操作规则，然后请学生进行操作，让学生在操作的过程中感受角色或者背景都做了哪些工作，帮助后面的项目分析。</li></ul><ul id="a45ec5cd-0715-44c9-9ac2-6d4c428f5e85" class="bulleted-list"><li>操作说明：点击舞台切换背景，主角跟随切换造型。</li></ul><h3 id="026b6d70-4356-4a7b-926e-7013e8d2ade2" class="">3.思维导图讲解（3mins）</h3><ul id="7d908cb6-70a4-450b-8496-f322b3513101" class="bulleted-list"><li>引导学生分析背景以及每个角色的任务。（可以根据学生的表述写在黑板上，也可以直接展示ppt第5页内容）</li></ul><figure id="790115ab-fb7d-46d9-a90a-2f96d4c6e89e" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%201.png"><img style="width:672px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%201.png"/></a></figure><h2 id="4cdd50ed-b596-4566-89ff-1c5efa48318f" class="">三、项目讲解（50mins）</h2><h3 id="daaf0efd-a7b6-4a2b-9c94-9458a778a9cd" class="">1.界面介绍（10mins）</h3><figure id="1fdfed4b-55a2-4b46-998a-2db8d0b723f8" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%202.png"><img style="width:808px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%202.png"/></a></figure><ul id="13ac2aef-2e52-4ff9-b1e9-69870419ce87" class="bulleted-list"><li>介绍界面可以采用两种方式：</li></ul><ol id="5a7f1738-118d-419b-b069-92542d3dbb34" class="numbered-list" start="1"><li>直接打开编辑器，按照从左到右的顺序依次讲解。</li></ol><ol id="95d25cfd-0c21-41ec-9c17-80d2fd89ac72" class="numbered-list" start="2"><li>在项目制作的过程中用到哪个区域讲解哪个区域的名称及功能。</li></ol><p id="f85ca2ac-2919-4e44-9859-8018f359f248" class="">💡<mark class="highlight-red">注意：讲解积木区时需要讲解如何拖拽、删除、组合积木，讲解舞台区时需要讲解舞台上方的绿旗子代表开始运行、红色的按钮代表停止运行。</mark></p><h3 id="01924d2b-a614-4ebd-a866-47ace18c688e" class="">2.添加角色及背景（5mins）</h3><ul id="0bde2251-ef5b-4b67-a5c2-37998bcb37dc" class="bulleted-list"><li>在背景以及角色库添加角色和背景并按照如图所示进行大小调整以及布局。</li></ul><p id="f4b96319-a12e-4727-b0b2-2e54afbb7524" class="">💡<mark class="highlight-red">此项目有4个背景，完成背景添加后需要将背景顺序调整为“春”、“夏”、“秋”、“冬”的顺序。</mark></p><div id="8eb16315-57ba-4302-92b8-56da0c25237a" class="column-list"><div id="5c68208a-af98-491c-95a4-d4a445c8fdff" style="width:50%" class="column"><figure id="8feb935b-ce9e-458d-8bd8-83daee6277cb" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%203.png"><img style="width:437px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%203.png"/></a></figure><figure id="b58c9e1f-b3fe-4a7e-b8f2-64247deb4f88" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881.gif"><img style="width:251px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881.gif"/></a></figure></div><div id="e428f7a6-d035-479a-8e45-f7fbbaa3f092" style="width:50%" class="column"><figure id="5752f6e5-db3e-46b9-ac0b-0263ce675768" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%204.png"><img style="width:159px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%204.png"/></a></figure><p id="299157ee-24c0-4d69-9e7b-1e1fe5b25cc3" class="">👈调整背景顺序方法：在积木区上方选中【背景】标签，在背景编辑器中，按住鼠标左键选中需要调整顺序的背景图片，移动至需要调整的位置即可。</p><p id="7a3c389b-3a4c-41c7-af67-b4ff5df04164" class="">
+</p></div></div><h3 id="f7c7fd8b-fca4-4c5e-b461-5f462fdbb553" class="">3.调整角色大小（3mins）</h3><ul id="95ee42ca-6d99-4114-99ff-3c5d1b00683f" class="bulleted-list"><li>有两种方法可以调整角色的大小，老师们可以根据学生的能力自行调整使用哪种方式。</li></ul><div id="bf5d8abb-23ce-4983-babe-2d26de1eb7c2" class="column-list"><div id="f4a0bf07-cd45-45ed-bf13-e7c04a332f1a" style="width:50%" class="column"><figure id="12bfa195-a8f3-4c1a-b3a8-41b6dc33eb23" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%205.png"><img style="width:438px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%205.png"/></a></figure></div><div id="0d74e29c-2c89-450e-81a8-6bbea0911271" style="width:50%" class="column"><p id="495f398c-f657-48d5-9e86-4ab5730cce5b" class="">1.直接在角色区调整大小，这个方法需要先删除数字再输入新的数字。<div class="indented"><p id="fb6c3e6f-a7b5-4e2a-bf51-f1084711ff60" class="">🙁对于鼠标键盘使用不熟练的学生来说操作比较麻烦。</p><p id="5b4c1837-6c55-4132-b268-ea1b06d6b972" class="">😀调整后的效果可以直接在舞台上显示，方便观察大小调整是否合适。</p><p id="b76122d7-487c-491b-8eba-40d89c1df9b2" class="">
+</p></div></p></div></div><div id="e5e17cf6-5ce3-4187-8467-05631502750f" class="column-list"><div id="f661a144-d15d-4852-be36-1888c4c19f21" style="width:50%" class="column"><p id="aac15c68-40c6-42ed-ad67-24ab14b067dd" class="">2.使用【外观】积木盒子中的【将大小设为】积木进行大小调整。</p><p id="2cdf71db-e1da-4daf-b731-d943c8410499" class="">🙁调整好大小无法马上在舞台上显示，无法直接判断大小调整是否合适，需要与事件积木结合使用。</p><p id="de74e305-94fc-4502-bfaf-73353f46338b" class="">😀调整数字不需要删除原本的数字，只要点击圆圈处直接输入数字即可。</p></div><div id="89f6d9ce-2d9d-4eaf-a52e-fa179164e235" style="width:49.99999999999999%" class="column"><figure id="088ddad1-4edc-4c47-b9a3-3177a9287646" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%206.png"><img style="width:336px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%206.png"/></a></figure></div></div><h3 id="8512091c-8f86-4b5c-89cd-9d0bbd9204b8" class="">4.事件概念（5mins）</h3><ul id="723882a7-f69b-4762-a9c1-843d4d0bf042" class="bulleted-list"><li>单独将积木放在搭建区是无法运行的，需要与【事件】积木盒子中的积木拼接才能正常运行。</li></ul><ul id="0ef22736-27fa-425e-9833-88f1bbef9fd4" class="bulleted-list"><li>事件：是触发一系列后续事情发生的动作，当什么事件出现时做什么事情。（此处可以结合PPT第7页讲解）</li></ul><div id="0df223e6-1662-4e1c-b451-db5ebe61f264" class="column-list"><div id="37b9e478-ed6e-43ee-82bb-850ebf2e0369" style="width:50%" class="column"><figure id="6decc8a1-704d-437f-8024-d86c7ad2fd03" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%207.png"><img style="width:198px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%207.png"/></a></figure><p id="2f54b4e4-6e6d-46d2-8dae-f64dda25d99b" class="">
+</p></div><div id="2f89cd13-4a94-4488-b7b0-bc0f6b2e5041" style="width:50%" class="column"><figure id="a10e548d-f52b-4c8f-bda2-e615ee01286b" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%208.png"><img style="width:220px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%208.png"/></a></figure></div></div><p id="a1ab1bb3-4071-47b4-b217-ebc1ec6865b6" class="">💡<mark class="highlight-red">讲解事件概念时为了方便学生理解多举一些生活中的例子。</mark><div class="indented"><p id="92113472-56e4-4cd9-936f-2c3cd54abf15" class=""> <mark class="highlight-red">例如：当打上课铃时，同学们需要进入教室上课。这里的“当打上课铃”就是一个事件。</mark></p></div></p><h3 id="31742a7c-ed1b-4891-b9f4-9872e26fbdd3" class="">5.点击舞台，背景切换（5mins)</h3><div id="648af0d9-61d9-419c-a58b-ff27c1ecb095" class="column-list"><div id="683332c9-c16d-470d-a7f5-b14e3caa9821" style="width:50%" class="column"><figure id="4858efcf-f994-4770-8080-b2786ea850c5" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%209.png"><img style="width:288px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%209.png"/></a></figure></div><div id="c2dab7c2-c3e5-4033-8343-3a464441b03a" style="width:50%" class="column"><p id="7bd3b7e8-d994-4153-acbc-2294254de759" class="">当点击舞台时，背景由当前背景切换至下一张背景。（完成此段程序可以让学生测试点击舞台时背景是否有切换）</p><p id="83eb3555-7f9d-4ab6-a245-efb7bc693489" class="">💡<mark class="highlight-red">背景一定要按照顺序排列，否则会切换到错误的背景。</mark></p><p id="ffe52a9e-c98e-43ec-aaaf-c52907e93d9b" class="">💡<mark class="highlight-red">编写程序前需要先在背景区选中背景图片。</mark></p></div></div><h3 id="a6352926-a9a0-43f2-9502-12af8e129c2d" class="">6.依据不同的背景，【四季兔】切换至相应造型(10mins)</h3><ul id="736fcc4a-e40b-4d28-872b-a1ad788b5b70" class="bulleted-list"><li>【四季兔】根据对应的背景切换至对应的造型。</li></ul><p id="46d160d0-b987-4d22-8afe-61565bb379e2" class="">💡<mark class="highlight-red">在编写程序前，需要先在角色区选中【四季兔】。</mark></p><figure id="d44f1fb3-eed3-4723-a798-3b76c36a6ce8" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2010.png"><img style="width:1017px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2010.png"/></a></figure><ul id="c68379ce-98d3-4b2a-8d56-bf5179c396ce" class="bulleted-list"><li>一共四个背景，分别对应四个不同的造型，所以相同的程序需要四段。（每完成一段程序可以让学生自己测试当前的效果）</li></ul><p id="2c1b84cf-f23a-47f1-b41c-2e65b238ae0a" class="">👉此处操作时，老师可以先带着学生组合前两组程序，后面的程序让学生自己尝试组合。</p><figure id="f3daeed4-6c42-4138-95f1-78717232a301" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2011.png"><img style="width:384px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2011.png"/></a></figure><div id="e692e981-2a6c-429d-9fbf-2598481dd221" class="column-list"><div id="2cd26db7-b818-4e3e-9176-50e5a4dd9b8f" style="width:50%" class="column"><figure id="346c5617-3584-446d-aced-c70e74f6d70d" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2012.png"><img style="width:144px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2012.png"/></a></figure></div><div id="e1006965-fef5-439d-accd-b84af9d9d679" style="width:50%" class="column"><p id="7e41bb26-f329-41c8-9638-81b94bc8f77c" class="">👈拥有两个及以上造型的角色才可以进行造型的变化。</p></div></div><p id="f1d79967-57e5-4895-8f6c-199cf0269f99" class="">👉通过积木上的白色三角形，可以更改背景名称以及角色的造型名称。</p><figure id="0c557f9b-01d0-44f1-b258-6bb28e11a435" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881%201.gif"><img style="width:745px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881%201.gif"/></a></figure><h3 id="27a2005c-0bb3-42c6-b456-d34c45791315" class="">7.初始化背景(5mins)</h3><div id="e292f775-61b6-4001-b155-784a4450ea27" class="column-list"><div id="83ad36be-1ff9-4316-ba2e-8f6320298bc7" style="width:50%" class="column"><figure id="e5526dd8-16bf-427c-93f9-b145bd30ffc8" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2013.png"><img style="width:315px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2013.png"/></a></figure><h3 id="869ca17d-72e4-47d3-834a-e531e402b192" class="">8.添加背景音乐(7mins)</h3></div><div id="1aa36eb5-0bcf-4e16-8274-cdeccdd35223" style="width:50%" class="column"><ul id="900922e8-9978-4250-b76c-c2b2a9cdfd15" class="bulleted-list"><li>每次程序开始运行时，背景都需要从春季开始。</li></ul></div></div><div id="02d03053-0da8-429c-89a7-7d05662917c8" class="column-list"><div id="2331c511-8a9a-403a-95ac-6a09c13c8c2d" style="width:43.75%" class="column"><figure id="ea77cc7e-9bf4-498c-9637-36b679e61c9e" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2014.png"><img style="width:288px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2014.png"/></a></figure></div><div id="7ca1ad60-0d26-451b-b8d7-544c48ff608f" style="width:56.25%" class="column"><ul id="5627368f-f41d-400a-873d-0c30a91c9055" class="bulleted-list"><li>在积木区上方选中【声音】标签页，进入声音存储界面，在此界面的左下方点击“小喇叭”标志进入声音库。</li></ul></div></div><ul id="8456e9ee-88c0-47f8-a532-a848ddfba654" class="bulleted-list"><li>进入声音库后可以按照“分类”或者使用”搜索“功能来查找音乐。</li></ul><p id="f6c1e9e7-6cec-4aab-b64f-d91fe4282e4f" class="">💡<mark class="highlight-red">可以将鼠标放置在每个声音的右上角的粉色按钮上来试听音乐。（不需要点击）</mark></p><p id="2f22ef3e-ade2-45b9-9e90-e4cb8181ba8f" class="">💡<mark class="highlight-red">试听到合适的音乐，只需要点击一次喇叭标志即可完成声音的添加。</mark></p><figure id="18148032-af59-4022-953d-0b8082c162a5" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2015.png"><img style="width:1227px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2015.png"/></a></figure><div id="8d0d719f-1e1e-4f44-b3fd-7f5febf96fec" class="column-list"><div id="d37de7d7-62ce-4f5d-bfbf-c06232e9b5ca" style="width:50%" class="column"><figure id="da4813bf-7c74-4c42-b28e-936afe7735f8" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2016.png"><img style="width:330px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2016.png"/></a></figure></div><div id="ea84ae95-1db1-4e98-9718-73d987a423ef" style="width:50%" class="column"><ul id="452c1da1-a03c-4803-9fbc-050385b95b2b" class="bulleted-list"><li>完成声音添加后，在【声音】积木盒子中找到【播放........声音】积木块进行组合即可完成播放背景音乐的程序。</li></ul><p id="2b846f66-42c1-48f7-864a-bb5e883af3ca" class="">💡<mark class="highlight-red">在scratch中音乐都是每个角色独有的，即哪个角色添加了此段音乐哪个角色才可以播放此段音乐，别的角色不可以使用。所以添加音乐时一定要添加至需要播放音乐的角色或者背景上。</mark></p></div></div><h3 id="c92420d9-69e6-41fd-94c5-0dff29e8e387" class="">9.保存并分享作品</h3><ul id="33256019-9749-4b60-97c5-6f6579b693b3" class="bulleted-list"><li>给作品编辑名字，保存并分享作品。</li></ul><figure id="8f9401de-a781-4e0b-ac12-e4d34d54d080" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2017.png"><img style="width:627px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2017.png"/></a></figure><h3 id="ad02bd6a-8a06-4fee-8ced-166db3c19a3c" class="">10.讲解四季为什么会产生以及每个季节的特点。(10min)</h3><ul id="ac27e97d-bfc6-4344-9665-bef179989f2b" class="bulleted-list"><li>参考PPT5-6页进行讲解。（此部分老师可以依据课程节奏自行调整讲解顺序。可以在项目开始制作前讲解，也可以放在项目制作结束后）</li></ul><h2 id="cf6746f7-f1ee-4f05-b069-77b78f76adeb" class="">四、课后总结(5mins)</h2><h3 id="85310da7-cedc-4173-ba2e-c420a40eb95f" class="">1.知识点总结</h3><ul id="ef0d2600-8556-41da-86bf-3c2f59a2f877" class="bulleted-list"><li>scratch操作界面各个分区功能。</li></ul><figure id="743f8ef5-9c1b-40d4-aa85-4c427375eac3" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2018.png"><img style="width:773px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2018.png"/></a></figure><figure id="030fa631-ad77-4cfe-878d-4427c4e5f3b2" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2019.png"><img style="width:764px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2019.png"/></a></figure><figure id="6e799c5c-930a-4e41-9fa1-fbd05c2e0453" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2020.png"><img style="width:758px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2020.png"/></a></figure><h3 id="e55e1ffb-4781-4ad2-868a-7f0d67169634" class="">2.随堂测试</h3><figure id="f72e332a-b11e-4678-a36e-8fdbf5304e17" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2021.png"><img style="width:755px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881/Untitled%2021.png"/></a></figure><h3 id="3489afc5-ceef-4135-8004-d88c793a2939" class="">3.拓展与作业</h3><div id="22ca5f33-7938-4e26-afb1-521af752f5f5" class="column-list"><div id="f7c944d7-8974-462d-a9dd-a9ed2d10e02a" style="width:50%" class="column"><figure id="01c4d372-1dfa-4ea1-9232-f68f7b8ee639" class="image"><a href="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881%202.gif"><img style="width:730px" src="https://scratch-assets.91xbc.com/jioan/764/images/jiaoan%E3%80%8A%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E3%80%8B%E6%95%99%E6%A1%88%204fc3f2e2babc49099f5a88ed22b79881%202.gif"/></a></figure></div><div id="ad9bd210-0345-4518-839f-1a1492a72091" style="width:50%" class="column"><p id="65e5a602-e5b0-44c3-84c5-47941e7870ca" class="">📝尝试用今天学过的知识给四季兔添加一个朋友，并让他们一起随着背景变化造型。</p></div></div></div></article></body></html>
