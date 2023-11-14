@@ -34,7 +34,7 @@
 
 # 🧰 Tool Kit
 
-- [点击进入](/ToolKit/)
+- [点击进入](/Toolkit/)
 
 # 📱联系作者
 > wechat: xxml_xyz

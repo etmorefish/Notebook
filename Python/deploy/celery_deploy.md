@@ -50,29 +50,128 @@ Task result store用来存储Worker执行的任务的结果，Celery支持以不
 
 ## 实战
 
+### 基本使用
+
+#### 准备
+
+为了演示方便，这里使用redis同时作为 `amqp broker` 和 `task result store`。
+
+- 安装redis：`$ docker run -itd --name redis-test -p 6379:6379 redis`
+- 创建环境并安装对应依赖：`pip install redis celery eventlet` 
+
+#### 项目初始化
+
+- celery 单文件案例 tasks.py
+
+  ```python
+  import datetime
+  from celery import Celery
+  from celery.schedules import crontab
+  
+  # 连接远程 redis服务的地址和端口号
+  redis_host = "127.0.0.1"
+  redis_port = "6379"
+  
+  app = Celery(
+      "tasks",
+      broker=f"redis://{redis_host}:{redis_port}/3",
+      backend=f"redis://{redis_host}:{redis_port}/4",
+  )
+  
+  
+  @app.task
+  def add(x, y):
+      return x + y
+  
+  
+  @app.task
+  def subtract(x, y):
+      return x - y
+  
+  
+  @app.task
+  def multiply(x, y):
+      return x * y
+  
+  
+  @app.task
+  def divide(x, y):
+      return x / y
+  
+  
+  @app.task
+  def print_time():
+      print(f"The time is now {datetime.datetime.now()}")
+  
+  
+  app.conf.beat_schedule = {
+      "print-every-minute": {
+          "task": "tasks.print_time",
+          "schedule": crontab(minute="*"),
+      },
+  }
+  
+  ```
+
+
+
+
+#### 项目的运行
+
+- 启动步骤
+
+  - 启动 **Celery worker**
+
+    `celery -A tasks worker --loglevel=info  -P eventlet`
+
+  - 启动 **Celery Beat** 守护进程
+
+    `celery -A tasks beat --loglevel=info`
+
+- 测试异步任务 test.py
+
+  ```python
+  from tasks import add, subtract, multiply, divide
+  
+  result = list()
+  
+result.append(add.delay(6, 3).get())
+  result.append(subtract.delay(6, 3).get())
+  result.append(multiply.delay(6, 3).get())
+  result.append(divide.delay(6, 3).get())
+  
+  print(f"result:{result}")
+  ```
+  
+
+#### 运行结果
+
+![](https://cdn.jsdelivr.net/gh/etmorefish/picbed@main/celery_simple01.png)
+
+可以看到定时任务会自动触发，异步任务需要我们手动触发。
+
+### 进阶使用
+
+添加`flower`进行监控，
+
+- 安装：`pip install flower`
+- 启动：`celery -A tasks flower --port=5555 -P eventlet`
+
+![](https://cdn.jsdelivr.net/gh/etmorefish/picbed@main/flower_monitor_web.png)
 
 
 
 
 
+## Todo
+
+- 多任务结构
+- flask项目使用celery
+- 远程调用
+- 多机部署
+- 错误重试
+- 回调
+- 设计工作流程 ¶
 
 
-
-```
-
-# 启动 Celery worker 
-celery -A tasks worker --loglevel=info  -P eventlet
-
-
-# 启动 Celery Beat 守护进程：
-celery -A tasks beat --loglevel=info
-
-# 启动 FLower 监控
-celery -A tasks flower --port=5555 -P eventlet
-
-
-celery -A job.celery.celery_job_pv worker --loglevel=info -P eventlet
-celery -A job.celery.celery_job_pv beat --loglevel=info
-celery -A job.celery.celery_job_pv flower --port=5555 -P eventlet
-```
 
