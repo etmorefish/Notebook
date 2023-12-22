@@ -32,7 +32,7 @@
 
 单点登录（Single Sign On），简称为 SSO，是比较流行的企业业务整合的解决方案之一。SSO的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/Ptef09iaEWxyJ8OOgFdNXVODjxVomudAYFUNtDVvjNAY2Kure0hwwYP2ZngGdtibW79WlXMhfBR4sEU44ZPao96g/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://cdn.jsdelivr.net/gh/etmorefish/picbed@main/sso1.png)
 
 如图所示，图中有4个系统，分别是Application1、Application2、Application3、和SSO。Application1、Application2、Application3没有登录模块，而SSO只有登录模块，没有其他的业务模块，当Application1、Application2、Application3需要登录时，将跳到SSO系统，SSO系统完成登录，其他的应用系统也就随之登录了。这完全符合我们对单点登录（SSO）的定义。
 
@@ -40,7 +40,7 @@
 
 用户首次访问时，需要在认证中心登录：
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/Ptef09iaEWxyJ8OOgFdNXVODjxVomudAYibbCPR7Nn6xql2icGhyK2upmIk5baGlqFkCcY4nSTG3QRjuiaahxjKaug/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://cdn.jsdelivr.net/gh/etmorefish/picbed@main/sso2.png)
 
 1. 用户访问网站 a.com 下的 pageA 页面。
 2. 由于没有登录，则会重定向到认证中心，并带上回调地址 **www.sso.com?return\_uri=a.com/pageA，以便登录后…**[1]
@@ -51,13 +51,13 @@
 
 认证中心登录完成之后，继续访问 `a.com` 下的其他页面：
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/Ptef09iaEWxyJ8OOgFdNXVODjxVomudAYibpYVKdj37EIzwoM13ujibyov69qfgcgw8GqjDxiaBsrlgDJ7tfzvtXNQ/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://cdn.jsdelivr.net/gh/etmorefish/picbed@main/sso3.png)
 
 这个时候，由于 `a.com` 存在已登录的 `Cookie` 信息，所以服务器端直接认证成功。
 
 ###### 如果认证中心登录完成之后，访问 `b.com` 下的页面：
 
-![图片](https://mmbiz.qpic.cn/sz_mmbiz_png/Ptef09iaEWxyJ8OOgFdNXVODjxVomudAYpH6Pfd7moiaYWL44LxjxDbiaIcIoj7jpp0uumX4YO4icIq8W7vTVlV3gA/640?wx_fmt=png&from=appmsg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://cdn.jsdelivr.net/gh/etmorefish/picbed@main/sso4.png)
 
 这个时候，由于认证中心存在之前登录过的 `Cookie`，所以也不用再次输入账号密码，直接返回第 4 步，下发 `ticket` 给 `b.com` 即可。
 
