@@ -3,6 +3,7 @@
 ## RUST基础知识点
 
 - [基础知识点](/Rust/basepoint.md)
+- [rustlings](/Rust/rustlings.md) - rust练习首选
 
 ## Rust 并发编程
 
@@ -13,3 +14,4 @@
 
 
 # 
+
