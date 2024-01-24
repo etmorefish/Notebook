@@ -4,6 +4,7 @@
 
 - [基础知识点](/Rust/basepoint.md)
 - [rustlings](/Rust/rustlings.md) - rust练习首选
+- [Rustlings Analysis](/Rust/rustlings_analysis.md) - rustlings 练习题解析
 
 ## Rust 并发编程
 
