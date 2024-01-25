@@ -14,7 +14,8 @@
 ## 🦀 Rust
 
 - [👒 欢迎进入 Rust](/Rust/) 
-
+- [rustlings](/Rust/rustlings.md) - rust练习首选
+- [Rustlings Analysis](/Rust/rustlings_analysis.md) - rustlings 练习题解析
 ## 🐍 Python
 
 - [👒 欢迎进入 Python](/Python/) 
