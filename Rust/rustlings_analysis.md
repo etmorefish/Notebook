@@ -15,7 +15,7 @@
 学习如何声明变量，并使用`let`关键字。
 在Rust中，默认情况下变量是不变的。当变量不变时，一旦值绑定到名称，就无法更改该值。您可以通过在可变名称的前面添加mut来使其变异。
 
-###### [变量与可变性](https://kaisery.github.io/trpl-zh-cn/ch03-01-variables-and-mutability.html)
+#### [变量与可变性](https://kaisery.github.io/trpl-zh-cn/ch03-01-variables-and-mutability.html)
 
 **常量**（constants）是 Rust 中绑定到一个名称的不允许改变的值。与变量不同，常量具有以下特点：
 
@@ -483,7 +483,7 @@ process_numbers(&numbers[1..4]);  // 传递数组的切片作为参数
             println!("Neither alphabetic nor numeric!");
         }
 
-        let your_character = '🦀';
+        let your_character = '🦀';  // 可以是任何字符或者Unicode字符
         // let // Finish this line like the example! What's your favorite character?
         // Try a letter, try a number, try a special character, try a character
         // from a different language than your own, try an emoji!
@@ -755,13 +755,411 @@ mod tests {
 
 ### 介绍
 
+移动语义（Move Semantics）是指在编程语言中对数据的所有权（ownership）进行有效管理的一种机制。在Rust中，移动语义是一项重要的特性，与所有权系统密切相关。
+
+总体来说，移动语义有以下几个关键点：
+
+1. **所有权和移动：** 在Rust中，每个值都有一个唯一的所有者。当值被传递给另一个变量或函数时，所有权会从一个所有者转移到另一个所有者。这个过程称为“所有权转移”或“移动”。
+
+    ```rust
+    let v1 = vec![1, 2, 3];
+    let v2 = v1;  // 这里发生了所有权转移 
+    ```
+
+2. **避免浅拷贝和深拷贝：** 在传统的编程语言中，数据的复制可能会涉及浅拷贝（shallow copy）或深拷贝（deep copy）。浅拷贝只复制指针而不是实际数据，而深拷贝会复制整个数据。在Rust中，移动语义意味着所有权的转移，避免了昂贵的深拷贝操作，同时保持内存安全性。
+
+3. **借用和引用：** 当我们不想转移所有权时，可以使用引用（reference）来借用数据的引用而不是所有权。Rust的借用规则确保了对数据的多个引用是安全的。
+
+    ```rust
+    fn print_vector(v: &Vec<i32>) {
+        // // 函数接受对向量的引用。这里可以安全地借用v中的元素
+        for &num in v {
+            println!("{}", num);
+        }
+    }
+
+    let numbers = vec![1, 2, 3];
+    print_vector(&numbers);  // 传递引用而不是所有权。
+    ```
+
+4. **Copy trait：** 基本的整数类型（如 i32、u64）、字符串和布尔类型 bool 是内置实现 Copy trait 的类型。这意味着它们在进行赋值操作时会复制值，而不是移动所有权。如果你有一个包含这些类型的结构体或元组，只要这个结构体或元组的所有字段都实现了 Copy，那么这个结构体或元组也会自动实现 Copy。如果你的结构体或元组包含不实现 Copy 的字段，那么它将不再自动实现 Copy。
+
+    ```rust
+    let x = 5;  // 整数实现了 Copy trait.
+    let y = x;  // 复制值而不是移动所有权。
+
+    let s1 = String::from("Hello");
+    let s2 = s1;  // 字符串的所有权被移动。
+
+    println!("{}, world!", s1); // 错误！s1 不再有效。
+    println!("{}", s2); // 正确。
+
+    let s3 = "Hello";
+    let s4 = s3; // 字符串实现了 Copy trait，所以没有移动。
+    println!("{}, world!", s4); // 正确。
+    ```
+
+移动语义在Rust中提供了高效的内存管理，并通过防止悬垂引用（dangling references）等问题，增强了程序的安全性。合理利用移动语义可以避免不必要的内存拷贝，并帮助编写更高效、更安全的代码。
+
 ### 练习
 
+- move_semantics1.rs
+    ```rust
+    #[test]
+    fn main() {
+        let vec0 = vec![22, 44, 66];
+
+        let vec1 = fill_vec(vec0);
+
+        assert_eq!(vec1, vec![22, 44, 66, 88]);
+    }
+
+    fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
+        // let vec = vec;
+        let mut vec = vec;  // 这里 vec 拥有 vec0 的所有权
+
+        vec.push(88);
+
+        vec
+    }
+    ```
+- move_semantics2.rs
+    ```rust
+    #[test]
+    fn main() {
+        let vec0 = vec![22, 44, 66];
+
+        // let mut vec1 = fill_vec(vec0);
+        let vec1 = fill_vec(vec0.clone());  // 使用 clone 方法创建新的 Vec
+
+        assert_eq!(vec0, vec![22, 44, 66]);
+        assert_eq!(vec1, vec![22, 44, 66, 88]);
+    }
+
+    fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
+        let mut vec = vec;
+
+        vec.push(88);
+
+        vec
+    }
+    ```
+- move_semantics3.rs
+    ```rust
+    #[test]
+    fn main() {
+        let vec0 = vec![22, 44, 66];
+
+        let mut vec1 = fill_vec(vec0);
+
+        assert_eq!(vec1, vec![22, 44, 66, 88]);
+    }
+
+    fn fill_vec(mut vec: Vec<i32>) -> Vec<i32> {   //添加 mut， 这里 vec 拥有 vec0 的可变借用
+        vec.push(88);
+
+        vec
+    }
+    ```
+- move_semantics4.rs
+    ```rust
+    #[test]
+    fn main() {
+        let vec0 = vec![22, 44, 66];
+
+        let mut vec1 = fill_vec(vec0);
+
+        assert_eq!(vec1, vec![22, 44, 66, 88]);
+    }
+
+    // `fill_vec()` no longer takes `vec: Vec<i32>` as argument - don't change this!
+    fn fill_vec() -> Vec<i32> {
+        // Instead, let's create and fill the Vec in here - how do you do that?
+        // let mut vec = vec;
+
+        // 直接在函数内创建并填充 Vec
+        let mut vec = vec![22, 44, 66];
+
+        vec.push(88);
+
+        vec
+    }
+    ```
+- move_semantics5.rs
+    ```rust
+    #[test]
+    fn main() {
+        let mut x = 100;
+        let y = &mut x;
+        // let z = &mut x;
+        *y += 100;
+        let z = &mut x;    // 只需要调整顺序即可，此处考察的是 Rust 的所有权模型和借用规则
+                           // Rust 中的借用规则确保在任何给定时间，要么只能有一个可变引用，要么可以有多个不可变引用，但不能同时拥有可变引用和不可变引用。
+        *z += 1000;
+        assert_eq!(x, 1200);
+    }
+    ```
+- move_semantics6.rs
+    ```rust
+        fn main() {
+        let data = "Rust is great!".to_string();
+
+        // get_char(data);
+        // string_uppercase(&data);
+
+        get_char(&data);
+        string_uppercase(data);
+    }
+
+    // Should not take ownership
+    fn get_char(data: &String) -> char {    // 加上 &，此处 data 参数被声明为不可变引用，因此不能被修改
+        data.chars().last().unwrap()
+    }
+
+    // Should take ownership
+    fn string_uppercase(mut data: String) {    // 去掉 &
+        data = data.to_uppercase();   // 去掉 &
+
+        println!("{}", data);
+    }
+    ```
 ## 07_structs
 
 ### 介绍
 
+[Structures](https://kaisery.github.io/trpl-zh-cn/ch05-00-structs.html)
+
+[Method-syntax](https://kaisery.github.io/trpl-zh-cn/ch05-03-method-syntax.html)
+
+Rust 具有三种主要的结构类型，它们分别是经典的 C 结构、元组结构和单元结构。
+
+1. **经典的 C 结构（Classic C Structs）**：
+   - 类似于 C 语言中的结构体，允许你定义包含不同数据类型字段的自定义数据结构。
+   - 使用 `struct` 关键字定义结构体，通过字段名访问结构体中的成员。
+
+   ```rust
+   struct Person {
+       name: String,
+       age: u32,
+   }
+
+   let john = Person {
+       name: String::from("John"),
+       age: 30,
+   };
+
+   println!("Name: {}, Age: {}", john.name, john.age);
+   ```
+
+2. **元组结构（Tuple Structs）**：
+   - 与元组类似，但是有着命名的字段，可以为字段定义具体的类型。
+   - 通过在 `struct` 关键字后添加字段的类型，创建一个类似元组的结构。
+
+   ```rust
+   struct Point(i32, i32);
+
+   let origin = Point(0, 0);
+
+   println!("X: {}, Y: {}", origin.0, origin.1);
+   ```
+
+3. **单元结构（Unit Structs）**：
+   - 也被称为零字段结构，不包含任何字段。
+   - 主要用于实现特定的 traits 或表示某种特定的信息。
+
+   ```rust
+   struct EmptyStruct;
+
+   let empty_instance = EmptyStruct;
+   // No fields to access
+   ```
+
+这些结构类型在 Rust 中用于创建自定义数据类型，使得代码更加模块化、可读性更强，并提供了强类型的静态检查。通过这些结构类型，Rust 支持灵活而强大的数据建模。
 ### 练习
+
+- structs1.rs
+    ```rust
+    struct ColorClassicStruct {
+        // TODO: Something goes here
+        red: u8,
+        green: u8,
+        blue: u8,
+    }
+
+    // struct ColorTupleStruct(/* TODO: Something goes here */);
+    struct ColorTupleStruct(u8, u8, u8);
+
+    #[derive(Debug)]
+    struct UnitLikeStruct;
+
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        #[test]
+        fn classic_c_structs() {
+            // TODO: Instantiate a classic c struct!
+            // let green =
+            let green = ColorClassicStruct {
+                red: 0,
+                green: 255,
+                blue: 0,
+            };
+
+            assert_eq!(green.red, 0);
+            assert_eq!(green.green, 255);
+            assert_eq!(green.blue, 0);
+        }
+
+        #[test]
+        fn tuple_structs() {
+            // TODO: Instantiate a tuple struct!
+            // let green =
+            let green = ColorTupleStruct(0, 255, 0);
+
+            assert_eq!(green.0, 0);
+            assert_eq!(green.1, 255);
+            assert_eq!(green.2, 0);
+        }
+
+        #[test]
+        fn unit_structs() {
+            // TODO: Instantiate a unit-like struct!
+            // let unit_like_struct =
+            let unit_like_struct = UnitLikeStruct;
+            let message = format!("{:?}s are fun!", unit_like_struct);
+
+            assert_eq!(message, "UnitLikeStructs are fun!");
+        }
+    }
+    ```
+
+- structs2.rs
+    ```
+    #[derive(Debug)]
+    struct Order {
+        name: String,
+        year: u32,
+        made_by_phone: bool,
+        made_by_mobile: bool,
+        made_by_email: bool,
+        item_number: u32,
+        count: u32,
+    }
+
+    fn create_order_template() -> Order {
+        Order {
+            name: String::from("Bob"),
+            year: 2019,
+            made_by_phone: false,
+            made_by_mobile: false,
+            made_by_email: true,
+            item_number: 123,
+            count: 0,
+        }
+    }
+
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        #[test]
+        fn your_order() {
+            let order_template = create_order_template();
+            // TODO: Create your own order using the update syntax and template above!
+            // let your_order =
+            assert_eq!(your_order.name, "Hacker in Rust");
+            assert_eq!(your_order.year, order_template.year);
+            assert_eq!(your_order.made_by_phone, order_template.made_by_phone);
+            assert_eq!(your_order.made_by_mobile, order_template.made_by_mobile);
+            assert_eq!(your_order.made_by_email, order_template.made_by_email);
+            assert_eq!(your_order.item_number, order_template.item_number);
+            assert_eq!(your_order.count, 1);
+        }
+    }
+    ```
+
+- structs3.rs
+    ```rust
+    #[derive(Debug)]
+    struct Package {
+        sender_country: String,
+        recipient_country: String,
+        weight_in_grams: u32,
+    }
+
+    impl Package {
+        fn new(sender_country: String, recipient_country: String, weight_in_grams: u32) -> Package {
+            if weight_in_grams < 10 {
+                // This is not how you should handle errors in Rust,
+                // but we will learn about error handling later.
+                panic!("Can not ship a package with weight below 10 grams.")
+            } else {
+                Package {
+                    sender_country,
+                    recipient_country,
+                    weight_in_grams,
+                }
+            }
+        }
+
+        fn is_international(&self) -> ??? {
+            // Something goes here...
+        }
+
+        fn get_fees(&self, cents_per_gram: u32) -> ??? {
+            // Something goes here...
+        }
+    }
+
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        #[test]
+        #[should_panic]
+        fn fail_creating_weightless_package() {
+            let sender_country = String::from("Spain");
+            let recipient_country = String::from("Austria");
+
+            Package::new(sender_country, recipient_country, 5);
+        }
+
+        #[test]
+        fn create_international_package() {
+            let sender_country = String::from("Spain");
+            let recipient_country = String::from("Russia");
+
+            let package = Package::new(sender_country, recipient_country, 1200);
+
+            assert!(package.is_international());
+        }
+
+        #[test]
+        fn create_local_package() {
+            let sender_country = String::from("Canada");
+            let recipient_country = sender_country.clone();
+
+            let package = Package::new(sender_country, recipient_country, 1200);
+
+            assert!(!package.is_international());
+        }
+
+        #[test]
+        fn calculate_transport_fees() {
+            let sender_country = String::from("Spain");
+            let recipient_country = String::from("Spain");
+
+            let cents_per_gram = 3;
+
+            let package = Package::new(sender_country, recipient_country, 1500);
+
+            assert_eq!(package.get_fees(cents_per_gram), 4500);
+            assert_eq!(package.get_fees(cents_per_gram * 2), 9000);
+        }
+    }
+    ```
+
 
 ## 08_enums
 
