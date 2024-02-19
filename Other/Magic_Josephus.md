@@ -135,3 +135,81 @@ out:
 -----
 最终结果：剩下的牌为 D，步骤4中留下来的牌也是D
 ```
+
+Rust 代码实现：
+> https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=0c86e4410e121635dc1f140be7d17753
+```rust
+use rand::Rng;
+
+fn move_card_back(n: usize, arr: &mut Vec<char>) {
+    for _ in 0..n {
+        let move_card = arr.remove(0);
+        arr.push(move_card);
+    }
+}
+
+fn move_card_middle_random(n: usize, arr: &mut Vec<char>) {
+    let len = arr.len();
+    let idx = rand::thread_rng().gen_range(n + 1..len);
+    let mut new_arr = arr[n..idx].to_vec();
+    new_arr.extend_from_slice(&arr[0..n]);
+    new_arr.extend_from_slice(&arr[idx..]);
+    *arr = new_arr;
+}
+
+fn main() {
+    let mut arr = vec!['A', 'B', 'C', 'D', 'A', 'B', 'C', 'D'];
+    println!("步骤1：拿出4张牌，对折撕成8张，按顺序叠放。");
+    println!("此时序列为：{}", arr.iter().collect::<String>());
+
+    let name_len = rand::thread_rng().gen_range(2..=5);
+    move_card_back(name_len, &mut arr);
+    println!("步骤2：随机选取名字长度为{}，把第1张牌放到末尾，操作{}次。", name_len, name_len);
+    println!("此时序列为：{}", arr.iter().collect::<String>());
+
+    move_card_middle_random(3, &mut arr);
+    println!("步骤3：把牌堆顶3张放到中间的随机位置。");
+    println!("此时序列为：{}", arr.iter().collect::<String>());
+
+    let rest_card = arr.remove(0);
+    println!("步骤4：把最顶上的牌拿走，放在一边。");
+    println!("拿走的牌为：{}", rest_card);
+    println!("此时序列为：{}", arr.iter().collect::<String>());
+
+    let move_num = rand::thread_rng().gen_range(1..=3);
+    move_card_middle_random(move_num, &mut arr);
+    println!("步骤5：我{}，把{}张牌插入到中间的随机位置。", if move_num == 1 { "是南方人" } else if move_num == 2 { "是北方人" } else { "不确定自己是哪里人" }, move_num);
+    println!("此时序列为：{}", arr.iter().collect::<String>());
+
+    let male_num = rand::thread_rng().gen_range(1..=2);
+    for _ in 0..male_num {
+        arr.remove(0);
+    }
+    println!("步骤6：我是{}，移除牌堆顶的{}张牌。", if male_num == 1 { "男生" } else { "女生" }, male_num);
+    println!("此时序列为：{}", arr.iter().collect::<String>());
+
+    for _ in 0..7 {
+        let move_card = arr.remove(0);
+        arr.push(move_card);
+    }
+    println!("步骤7：把顶部的牌移动到末尾，执行7次");
+    println!("此时序列为：{}", arr.iter().collect::<String>());
+
+    println!("步骤8：把牌堆顶一张牌放到末尾，再移除一张牌，直到只剩下一张牌。");
+    while arr.len() > 1 {
+        let luck = arr.remove(0);
+        arr.push(luck);
+        println!("好运留下来：{}\t此时序列为：{}", luck, arr.iter().collect::<String>());
+
+        let sadness = arr.remove(0);
+        println!("烦恼都丢掉：{}\t此时序列为：{}", sadness, arr.iter().collect::<String>());
+    }
+    println!("最终结果：剩下的牌为 {}，步骤4中留下来的牌也是{}", arr[0], rest_card);
+}
+```
+
+在Rust中，我们使用了Vec<char>来存储扑克牌，并使用remove和push方法来移动牌。rand crate用于生成随机数。这段代码应该能够正确地模拟魔术中的步骤。在运行之前，请确保您已经添加了rand crate到您的Cargo.toml文件中：
+```toml
+[dependencies]
+rand = "0.8.5"
+```
