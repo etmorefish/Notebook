@@ -36,6 +36,16 @@
 
 ## 📚 ML
 
+# 🧮 Algorithm
+
+- [点击进入](/Algorithm/)
+
+- [哈希表](/Algorithm/Hash_table.md)
+
+- [树](/Algorithm/Tree.md)
+
+
+
 # 🧰 Tool Kit
 
 - [点击进入](/Toolkit/)
