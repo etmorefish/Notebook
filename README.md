@@ -16,11 +16,14 @@
 - [👒 欢迎进入 Rust](/Rust/) 
 - [rustlings](/Rust/rustlings.md) - rust练习首选
 - [Rustlings Analysis](/Rust/rustlings_analysis.md) - rustlings 练习题解析
+- [std::collections翻译](/Rust/Collections_translate.md) -  Rust 的标准集合库提供了最常见通用编程数据结构的高效实现
 ## 🐍 Python
 
 - [👒 欢迎进入 Python](/Python/) 
   - [生产部署：Nginx + Flask + Gunicorn + Supervisord](/Python/deploy/flask_deploy.md)
   - [Celery + Redis 定时任务部署](/Python/deploy/celery_deploy.md)
+  - [构建简易中文搜索引擎：Python 实践指南](/Python/Chinese_search_engine.md)
+  - [Python代码特殊写法](/Python/Python_code_skill.md)
 
 ## 🐹 Golang
 
