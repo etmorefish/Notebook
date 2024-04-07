@@ -95,7 +95,7 @@ for _ in range(10):
 使用`.join()`方法优雅地连接字符串序列。
 
 ```python
-', 'n(['apple', 'banana', 'cherry'])
+', '.join(['apple', 'banana', 'cherry'])
 ```
 
 ### 12. 使用`map`
@@ -128,7 +128,7 @@ multiply(5, 6)  # 返回30
 Python支持单行的条件表达式。
 
 ```python
-'Yes True else 'No'
+'Yes' if True else 'No'
 ```
 
 ### 16. 解包序列
@@ -146,7 +146,7 @@ a, *rest, b = [1, 2, 3, 4]
 ```python
 
 
-x a': 1, 'b': 2}
+x = {'a': 1, 'b': 2}
 y = {'b': 3, 'c': 4}
 z = {**x, **y}
 ```
