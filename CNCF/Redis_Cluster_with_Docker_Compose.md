@@ -233,3 +233,48 @@ Command: `$ redis-cli --cluster create 172.38.0.11:6379 172.38.0.12:6379 172.38.
 **Redis Cluster Relationship Diagram:  
 Redis 集群关系图：**
 ![](https://cdn.jsdelivr.net/gh/etmorefish/picbed@main/2024/240215-redis_cluster.png)
+
+
+## Redis Cluster 集群操作
+
+`redis-py` 是 Redis 官方推荐的 Python 客户端之一，但它本身不直接支持 Redis 集群模式。对于单个 Redis 服务器的连接和操作，`redis-py` 是非常合适的。然而，如果要操作 Redis 集群，你需要使用专门为集群模式设计的库，比如 `redis-py-cluster`。
+
+### redis-py-cluster
+`redis-py-cluster` 库扩展了 `redis-py` 的功能，增加了对 Redis 集群的支持。它处理了集群命令路由、节点故障转移等集群特有的逻辑。使用这个库，你可以直接与 Redis 集群互动，而无需担心后端的复杂集群逻辑。
+
+### 安装 redis-py-cluster
+如果你需要与 Redis 集群交互，你应该安装 `redis-py-cluster`。这可以通过 pip 命令轻松完成：
+
+```bash
+pip install redis-py-cluster
+```
+
+### 示例代码
+使用 `redis-py-cluster` 连接到 Redis 集群的代码如下所示：
+
+```python
+from rediscluster import RedisCluster
+
+def main():
+    startup_nodes = [
+        {"host": "192.168.5.55", "port": "6371"},
+        {"host": "192.168.5.55", "port": "6372"},
+        {"host": "192.168.5.55", "port": "6373"},
+        {"host": "192.168.5.55", "port": "6374"},
+        {"host": "192.168.5.55", "port": "6375"},
+        {"host": "192.168.5.55", "port": "6376"}
+    ]
+    rc = RedisCluster(startup_nodes=startup_nodes, decode_responses=True)
+    keys = rc.keys('*')
+    for key in keys:
+        print(key)
+
+if __name__ == "__main__":
+    main()
+
+```
+
+这个例子演示了如何设置和获取键值对，确保你根据自己的环境调整 `host` 和 `port`。
+
+### 总结
+如果你的应用需要与 Redis 集群交互，你应该使用支持集群的客户端库，如 `redis-py-cluster`。对于简单的、非集群的 Redis 实例，可以使用 `redis-py`。这样，你可以确保应用的兼容性和稳定性，同时充分利用 Redis 的高级功能。
