@@ -43,6 +43,7 @@
 - [Container 容器核心技术](/CNCF/Container.md)
 - [Kubernetets 的核心架构原则](/CNCF/K8s_base.md)
 - [kubectl 常用命令 ](/CNCF/Kubectl_Command.md)
+- [k8s 安装 redis](/CNCF/Install_Redis.md)
 - [K8s Q&A](/CNCF/K8s_Q&A.md)
 
 ## 🍎 Mac
