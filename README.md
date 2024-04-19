@@ -33,11 +33,17 @@
 ## 🐧 Linux
 - [点击进入](/Linux/)
 - [关于单点登录（SSO）](/Linux/SSO.md)
+- [通过 ssh 端口转发](/Linux/Port_Forward.md)
+- [Celery 笔记](/Linux/Celery.md)
+- [Linux 定时 Crontab 命令](/Linux/Crontab.md)
 
 ## 🐳 CNCF
 - [点击进入](/CNCF/)
 - [Redis Cluster with Docker Compose](/CNCF/Redis_Cluster_with_Docker_Compose.md)
-- [Kubernetes 学习笔记](/CNCF/Kubernetes.md)
+- [Container 容器核心技术](/CNCF/Container.md)
+- [Kubernetets 的核心架构原则](/CNCF/K8s_base.md)
+- [kubectl 常用命令 ](/CNCF/Kubectl_Command.md)
+- [K8s Q&A](/CNCF/K8s_Q&A.md)
 
 ## 🍎 Mac
 
