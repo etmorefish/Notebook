@@ -5,6 +5,14 @@
 
 部署 Redis 到 Kubernetes (k8s) 需要涵盖多个步骤，包括创建配置文件、密码设置、持久化存储等。要在特定的命名空间（例如 `sp1`）内进行所有操作，你需要在每个 Kubernetes 资源配置中指定 `namespace` 字段，或在命令行操作时使用 `-n sp1` 参数来指定命名空间。这样做可以确保你的所有资源都被创建在同一个命名空间中。下面是如何在特定命名空间 `sp1` 中进行所有操作的步骤。
 
+> 相关文件树
+redis
+├── redis.conf
+├── redis-configmap.yaml
+├── redis-deployment.yaml
+├── redis-pvc.yaml
+└── redis-service.yaml
+
 ### 步骤 1: 准备 Redis 配置文件
 首先，创建一个 Redis 配置文件 redis.conf，可以在你的本地机器上编辑这个文件：
 
