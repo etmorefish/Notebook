@@ -45,6 +45,7 @@
 - [kubectl 常用命令 ](/CNCF/Kubectl_Command.md)
 - [k8s 安装 redis](/CNCF/Install_Redis.md)
 - [K8s Q&A](/CNCF/K8s_Q&A.md)
+- [Crictl 相关](/CNCF/Crictl.md)
 
 ## 🍎 Mac
 
