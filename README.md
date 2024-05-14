@@ -27,43 +27,41 @@
   - [构建简易中文搜索引擎：Python 实践指南](/Python/Chinese_search_engine.md)
   - [Python代码特殊写法](/Python/Python_code_skill.md)
   - [记录一次Pandas与Polars性能对比测试](/Python/pandas_vs_ploras.md)
+  - [Paramiko - SSHv2 的 Python 实现](/Python/Paramiko.md)
 
 ## 🐹 Golang
 
 ## 🐧 Linux
-- [点击进入](/Linux/)
-- [关于单点登录（SSO）](/Linux/SSO.md)
-- [通过 ssh 端口转发](/Linux/Port_Forward.md)
-- [Celery 笔记](/Linux/Celery.md)
-- [Linux 定时 Crontab 命令](/Linux/Crontab.md)
+  - [点击进入](/Linux/)
+  - [关于单点登录（SSO）](/Linux/SSO.md)
+  - [通过 ssh 端口转发](/Linux/Port_Forward.md)
+  - [Celery 笔记](/Linux/Celery.md)
+  - [Linux 定时 Crontab 命令](/Linux/Crontab.md)
 
 ## 🐳 CNCF
-- [点击进入](/CNCF/)
-- [Redis Cluster with Docker Compose](/CNCF/Redis_Cluster_with_Docker_Compose.md)
-- [Container 容器核心技术](/CNCF/Container.md)
-- [Kubernetets 的核心架构原则](/CNCF/K8s_base.md)
-- [kubectl 常用命令 ](/CNCF/Kubectl_Command.md)
-- [k8s 安装 redis](/CNCF/Install_Redis.md)
-- [K8s Q&A](/CNCF/K8s_Q&A.md)
-- [Crictl 相关](/CNCF/Crictl.md)
+  - [点击进入](/CNCF/)
+  - [Redis Cluster with Docker Compose](/CNCF/Redis_Cluster_with_Docker_Compose.md)
+  - [Container 容器核心技术](/CNCF/Container.md)
+  - [Kubernetets 的核心架构原则](/CNCF/K8s_base.md)
+  - [kubectl 常用命令 ](/CNCF/Kubectl_Command.md)
+  - [k8s 安装 redis](/CNCF/Install_Redis.md)
+  - [K8s Q&A](/CNCF/K8s_Q&A.md)
+  - [Crictl 相关](/CNCF/Crictl.md)
 
 ## 🍎 Mac
 
 # 🤖 AI
 
-- [点击进入](/AI/)
+  - [点击进入](/AI/)
 
 ## 📚 ML
 
 # 🧮 Algorithm
 
-- [点击进入](/Algorithm/)
-
-- [LeetCode 热题 100](/Algorithm/Top_100_liked.md)
-
-- [哈希表](/Algorithm/Hash_table.md)
-
-- [树](/Algorithm/Tree.md)
+  - [点击进入](/Algorithm/)
+  - [LeetCode 热题 100](/Algorithm/Top_100_liked.md)
+  - [哈希表](/Algorithm/Hash_table.md)
+  - [树](/Algorithm/Tree.md)
 
 
 
@@ -73,10 +71,10 @@
 
 # 🐳 Other
 
-- [点击进入](/Other/)
-- [2024春晚刘谦魔术的程序模拟](/Other/Magic_Josephus.md)
-- [分词算法 jieba的实现原理](/Other/Jieba.md)
-- [手动实现一个jieba分词器](/Other/Jieba_code.md)
+  - [点击进入](/Other/)
+  - [2024春晚刘谦魔术的程序模拟](/Other/Magic_Josephus.md)
+  - [分词算法 jieba的实现原理](/Other/Jieba.md)
+  - [手动实现一个jieba分词器](/Other/Jieba_code.md)
 
 # 📱联系作者
 > wechat: xxml_xyz
