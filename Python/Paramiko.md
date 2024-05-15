@@ -43,13 +43,31 @@ ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa
 将公钥复制到远程服务器
 ssh-copy-id -i ~/.ssh/id_rsa.pub your_username@remote_id
 这将把本地生成的公钥 id_rsa.pub 添加到远程服务器的 ~/.ssh/authorized_keys 文件中。
+
+如果遇到ppk格式的密钥 - PuTTY Private Key，解决方法如下：
+安装PuTTY工具将.ppk文件转换为.pem文件
+sudo apt-get install putty-tools
+puttygen xxxx.ppk -O private-openssh -o id_rsa
 """
 
 # 1、创建 SSH 客户端对象
 ssh = paramiko.SSHClient()
 
-# 自动添加远程服务器的 SSH 密钥（不建议在生产环境中使用）
-ssh.set_ubuntusing_host_key_policy(paramiko.AutoAddPolicy())
+# 加载系统级的主机密钥
+# （通常位于 ~/.ssh/known_hosts），以便在连接时验证远程服务器的主机密钥是否在已知主机列表中。
+# 使用 ssh-keyscan 获取主机密钥并添加到 known_hosts：
+# ssh-keyscan -H 192.168.x.xxx >> ~/.ssh/known_hosts
+# ssh.load_system_host_keys()
+
+# 添加远程服务器的 SSH 密钥
+# 使用 AutoAddPolicy 自动添加未知主机密钥（开发环境使用）
+# ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+# 使用 RejectPolicy 拒绝未知主机密钥（生产环境推荐）
+# ssh.set_missing_host_key_policy(paramiko.RejectPolicy())
+
+# 使用 WarningPolicy 打印警告但接受未知主机密钥
+ssh.set_missing_host_key_policy(paramiko.WarningPolicy())
 
 # 1.1、使用密码连接到远程服务器
 ssh.connect(hostname='192.168.x.xxx', username='ubuntu', password='123456')
