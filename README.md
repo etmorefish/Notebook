@@ -28,6 +28,9 @@
   - [Python代码特殊写法](/Python/Python_code_skill.md)
   - [记录一次Pandas与Polars性能对比测试](/Python/pandas_vs_ploras.md)
   - [Paramiko - SSHv2 的 Python 实现](/Python/Paramiko.md)
+  - [Python 进阶编程，高手 Q&A Session](/Python/Python_Q&A.md)
+  - [并发控制原语之 Semaphore](/Python/Semaphore.md)
+  - [同步-异步-多线程 爬虫测试](/Python/asyncio_crawler.md)
 
 ## 🐹 Golang
 
