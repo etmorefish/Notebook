@@ -15,23 +15,26 @@
 ## 🦀 Rust
 
 - [👒 欢迎进入 Rust](/Rust/) 
-  - [rustlings](/Rust/rustlings.md) - rust练习首选
-  - [Rustlings Analysis](/Rust/rustlings_analysis.md) - rustlings 练习题解析
-  - [std::collections翻译](/Rust/Collections_translate.md) -  Rust 的标准集合库提供了最常见通用编程数据结构的高效实现
-  - [构建简易中文搜索引擎：Rust 实践指南](https://github.com/etmorefish/rust_projects/blob/main/chinese_search_engine/README.md#%E6%9E%84%E5%BB%BA%E7%AE%80%E6%98%93%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8Erust-%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97)
+- [rustlings](/Rust/rustlings.md) - rust练习首选
+- [Rustlings Analysis](/Rust/rustlings_analysis.md) - rustlings 练习题解析
+- [std::collections翻译](/Rust/Collections_translate.md) -  Rust 的标准集合库提供了最常见通用编程数据结构的高效实现
+- [构建简易中文搜索引擎：Rust 实践指南](https://github.com/etmorefish/rust_projects/blob/main/chinese_search_engine/README.md#%E6%9E%84%E5%BB%BA%E7%AE%80%E6%98%93%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8Erust-%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97)
+  
 ## 🐍 Python
 
 - [👒 欢迎进入 Python](/Python/) 
-  - [生产部署：Nginx + Flask + Gunicorn + Supervisord](/Python/deploy/flask_deploy.md)
-  - [Celery + Redis 定时任务部署](/Python/deploy/celery_deploy.md)
-  - [构建简易中文搜索引擎：Python 实践指南](/Python/Chinese_search_engine.md)
-  - [Python代码特殊写法](/Python/Python_code_skill.md)
-  - [记录一次Pandas与Polars性能对比测试](/Python/pandas_vs_ploras.md)
-  - [Paramiko - SSHv2 的 Python 实现](/Python/Paramiko.md)
-  - [Python 进阶编程，高手 Q&A Session](/Python/Python_Q&A.md)
-  - [并发控制原语之 Semaphore](/Python/Semaphore.md)
-  - [同步-异步-多线程 爬虫测试](/Python/asyncio_crawler.md)
-  - [Python GIL 锁](/Python/GIL.md)
+- [生产部署：Nginx + Flask + Gunicorn + Supervisord](/Python/deploy/flask_deploy.md)
+- [Celery + Redis 定时任务部署](/Python/deploy/celery_deploy.md)
+- [构建简易中文搜索引擎：Python 实践指南](/Python/Chinese_search_engine.md)
+- [Python代码特殊写法](/Python/Python_code_skill.md)
+- [记录一次Pandas与Polars性能对比测试](/Python/pandas_vs_ploras.md)
+- [Paramiko - SSHv2 的 Python 实现](/Python/Paramiko.md)
+- [Python 进阶编程，高手 Q&A Session](/Python/Python_Q&A.md)
+- [并发控制原语之 Semaphore](/Python/Semaphore.md)
+- [同步-异步-多线程 爬虫测试](/Python/asyncio_crawler.md)
+- [Python GIL 锁](/Python/GIL.md)
+- [collections 模块 - 提供了对 Python 的通用内建容器 dict、list、set 和 tuple 的补充。](/Python/Collections.md)
+
 
 ## 🐹 Golang
 
