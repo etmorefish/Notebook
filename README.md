@@ -75,6 +75,8 @@
 # 🧰 Tool Kit
 
 - [点击进入](/Toolkit/)
+- [Ranger explore - Linux 的一个终端文件管理器](/Toolkit/Ranger.md)
+
 
 # 🐳 Other
 

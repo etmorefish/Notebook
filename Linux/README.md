@@ -48,6 +48,14 @@ Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。
 ```bash
 # 查询Linux下个用户的内存占用
 ps aux | awk 'NR>1 {user[$1]+=$6} END {for (i in user) print i, user[i]/1024/1024 " GB"}'
- 
+
 ```
 
+### Jupyter 插件
+```shell
+pip install jupyterlab-lsp
+pip install jupyterlab-language-pack-zh-CN
+pip install jupyterlab-execute-time
+pip install jupyter-resource-usage
+pip install jedi-language-server
+```
