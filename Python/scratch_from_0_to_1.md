@@ -1,5 +1,7 @@
 # Python 零基础入门
 
+![](https://cdn.jsdelivr.net/gh/etmorefish/picbed@main/2024/Python%E7%BC%96%E7%A8%8B.png)
+
 - [第0章：前言](/Python/base/chapter0.md)
   
   - 简介
