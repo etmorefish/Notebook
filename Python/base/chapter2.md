@@ -259,5 +259,3 @@ for number in range(10):
            continue
        print(number)
    ```
-   
-   
