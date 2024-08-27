@@ -15,16 +15,32 @@ Python 文件的执行过程主要包括以下几个步骤：
 
 4. **生成 `.pyc` 文件**：编译后的字节码会保存为 `.pyc` 文件，存储在 `__pycache__` 目录中，以提高后续运行速度。
 
-5. **执行字节码**：Python 虚拟机 (PVM) 加载并执行字节码，管理内存、变量、函数调用和异常处理等。
+5. **手动编译 Python 文件**
+   
+   如果你没有看到 `.pyc` 文件，可以手动编译 Python 文件以确认 `.pyc` 文件的生成：
+   
+   `python -m py_compile example.py`
+   
+   这会在 `__pycache__` 目录下生成 `example.cpython-312.pyc`（`312` 代表 Python 3.12，Python 3.9 会显示 `39`）文件。
+
+6. **执行字节码**：Python 虚拟机 (PVM) 加载并执行字节码，管理内存、变量、函数调用和异常处理等。
 
 一个简单的例子：
 
 ```python
 # example.py
-def greet(name):
-    return f"Hello, {name}!"
+def add_numbers(a, b):
+    return a + b
 
-print(greet("World"))
+def main():
+    x = 10
+    y = 20
+    result = add_numbers(x, y)
+    print(f"The sum of {x} and {y} is {result}")
+
+if __name__ == "__main__":
+    main()
+
 ```
 
 运行命令：
@@ -33,31 +49,28 @@ print(greet("World"))
 python example.py
 ```
 
-输出：
+如果没有看到 `.pyc` 文件：
 
-```
-Hello, World!
+```bash
+python -m py_compile example.py
 ```
 
 字节码查看示例（使用 `dis` 模块）：
 
 ```python
-import dis
+In [1]: import dis
 
-def greet(name):
-    return f"Hello, {name}!"
+In [2]: def add_numbers(a, b):
+   ...:     return a + b
+   ...: 
 
-dis.dis(greet)
-```
+In [3]: dis.dis(add_numbers)
+  1           0 RESUME                   0
 
-字节码输出示例：
-
-```
-  2           0 LOAD_CONST               1 ('Hello, ')
-              2 LOAD_FAST                0 (name)
-              4 FORMAT_VALUE             0
-              6 BUILD_STRING             2
-              8 RETURN_VALUE
+  2           2 LOAD_FAST                0 (a)
+              4 LOAD_FAST                1 (b)
+              6 BINARY_OP                0 (+)
+             10 RETURN_VALUE
 ```
 
 总结：
@@ -177,7 +190,113 @@ combined = zip_longest(names, ages, fillvalue='Unknown')
 print(list(combined))  # [('Alice', 25), ('Bob', 30), ('Unknown', 35)]
 ```
 
-这些高级函数可以帮助你更有效地处理数据，提高代码的简洁性和可读性这些高级函数可以帮助你更有效地处理数据，提高代码的简洁性和可读性。
+这些高级函数可以帮助你更有效地处理数据，提高代码的简洁性和可读性。：
+
+### 1. `map()`
+
+`map()` 函数将一个函数应用到一个或多个可迭代对象（如列表、元组）中的每个元素，并返回一个迭代器。
+
+```python
+numbers = [1, 2, 3, 4, 5]
+squared = map(lambda x: x ** 2, numbers)
+print(list(squared))  # [1, 4, 9, 16, 25]
+```
+
+### 2. `filter()`
+
+`filter()` 函数用于过滤可迭代对象中的元素，只返回使函数结果为 `True` 的元素。
+
+```python
+numbers = [1, 2, 3, 4, 5]
+even_numbers = filter(lambda x: x % 2 == 0, numbers)
+print(list(even_numbers))  # [2, 4]
+```
+
+### 3. `reduce()`
+
+`reduce()` 函数将可迭代对象中的元素进行累积计算。需要导入 `functools` 模块。
+
+```python
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+sum = reduce(lambda x, y: x + y, numbers)
+print(sum)  # 15
+```
+
+### 4. `zip()`
+
+`zip()` 函数将多个可迭代对象中的元素聚合到一个元组中，并返回一个迭代器。
+
+```python
+names = ['Alice', 'Bob', 'Charlie']
+ages = [25, 30, 35]
+combined = zip(names, ages)
+print(list(combined))  # [('Alice', 25), ('Bob', 30), ('Charlie', 35)]
+```
+
+### 5. `enumerate()`
+
+`enumerate()` 函数为可迭代对象中的元素添加索引，并返回一个包含索引和值的迭代器。
+
+```python
+names = ['Alice', 'Bob', 'Charlie']
+indexed_names = enumerate(names)
+print(list(indexed_names))  # [(0, 'Alice'), (1, 'Bob'), (2, 'Charlie')]
+```
+
+### 6. `all()`
+
+`all()` 函数用于判断可迭代对象中的所有元素是否都为 `True`。
+
+```python
+values = [True, True, False]
+print(all(values))  # False
+```
+
+### 7. `any()`
+
+`any()` 函数用于判断可迭代对象中的任一元素是否为 `True`。
+
+```python
+values = [True, False, False]
+print(any(values))  # True
+```
+
+### 8. `sorted()`
+
+`sorted()` 函数返回一个排序后的列表。
+
+```python
+numbers = [5, 2, 9, 1, 5, 6]
+sorted_numbers = sorted(numbers)
+print(sorted_numbers)  # [1, 2, 5, 5, 6, 9]
+```
+
+### 9. `reversed()`
+
+`reversed()` 函数返回一个反转后的迭代器。
+
+```python
+numbers = [1, 2, 3, 4, 5]
+reversed_numbers = reversed(numbers)
+print(list(reversed_numbers))  # [5, 4, 3, 2, 1]
+```
+
+### 10. `zip_longest()`
+
+`zip_longest()` 函数类似于 `zip()`，但可以处理不同长度的可迭代对象。需要导入 `itertools` 模块。
+
+```python
+from itertools import zip_longest
+
+names = ['Alice', 'Bob']
+ages = [25, 30, 35]
+combined = zip_longest(names, ages, fillvalue='Unknown')
+print(list(combined))  # [('Alice', 25), ('Bob', 30), ('Unknown', 35)]
+```
+
+这些高级函数可以帮助你更有效地处理数据，提高代码的简洁性和可读性。
 
 ## 3. `*` 和 `**` 是什么？有什么区别？
 
