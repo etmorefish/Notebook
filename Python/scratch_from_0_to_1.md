@@ -12,6 +12,11 @@
 
 - [第5章：文件操作](/Python/base/chapter5.md)
 
-- [第6章：](/Python/base/chapter6.md)
+- [第6章：面向对象编程基础](/Python/base/chapter6.md)
+
+- [第7章：异常处理](/Python/base/chapter7.md)
+
+- [第8章：常用Python标准库](/Python/base/chapter8.md)
+
 
 <iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:600px;height:800px;" src="https://www.zhixi.com/embed/6798566f#"></iframe>

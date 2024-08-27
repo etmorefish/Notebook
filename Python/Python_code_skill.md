@@ -144,8 +144,6 @@ a, *rest, b = [1, 2, 3, 4]
 在Python 3.5及以上版本中，可以使用`{**d1, **d2}`合并字典。
 
 ```python
-
-
 x = {'a': 1, 'b': 2}
 y = {'b': 3, 'c': 4}
 z = {**x, **y}
@@ -219,4 +217,3 @@ Counter('banana')
 import itertools
 list(itertools.permutations([1,2,3]))
 ```
-

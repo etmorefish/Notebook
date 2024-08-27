@@ -7,6 +7,7 @@ Python 文件的执行过程主要包括以下几个步骤：
 1. **编写和保存 `.py` 文件**：在文本编辑器或 IDE 中编写 Python 代码，并保存为 `.py` 文件。
 
 2. **运行 Python 文件**：
+   
    - 在命令行或终端中导航到 Python 文件所在目录。
    - 使用 `python 文件名.py` 命令运行文件。
 
@@ -27,11 +28,13 @@ print(greet("World"))
 ```
 
 运行命令：
+
 ```sh
 python example.py
 ```
 
 输出：
+
 ```
 Hello, World!
 ```
@@ -48,6 +51,7 @@ dis.dis(greet)
 ```
 
 字节码输出示例：
+
 ```
   2           0 LOAD_CONST               1 ('Hello, ')
               2 LOAD_FAST                0 (name)
@@ -57,6 +61,7 @@ dis.dis(greet)
 ```
 
 总结：
+
 - 编写并保存 `.py` 文件
 - 运行时解析和编译为字节码
 - 生成 `.pyc` 文件加快后续执行
@@ -65,9 +70,11 @@ dis.dis(greet)
 这样，你的 Python 文件就可以顺利执行了。
 
 ## 2. Python 常用的高级函数有哪些？
+
 Python 提供了许多高级函数，这些函数能够简化代码、提高可读性并促进函数式编程风格。以下是一些Python 提供了许多高级函数，这些函数能够简化代码、提高可读性并促进函数式编程风格。以下是一些常用的 Python 高级函数：
 
 ### 1. `map()`
+
 `map()` 函数将一个函数应用到一个或多个可迭代对象（如列表、元组）中的每个元素，并返回一个迭代器。
 
 ```python
@@ -77,6 +84,7 @@ print(list(squared))  # [1, 4, 9, 16, 25]
 ```
 
 ### 2. `filter()`
+
 `filter()` 函数用于过滤可迭代对象中的元素，只返回使函数结果为 `True` 的元素。
 
 ```python
@@ -86,6 +94,7 @@ print(list(even_numbers))  # [2, 4]
 ```
 
 ### 3. `reduce()`
+
 `reduce()` 函数将可迭代对象中的元素进行累积计算。需要导入 `functools` 模块。
 
 ```python
@@ -97,6 +106,7 @@ print(sum)  # 15
 ```
 
 ### 4. `zip()`
+
 `zip()` 函数将多个可迭代对象中的元素聚合到一个元组中，并返回一个迭代器。
 
 ```python
@@ -107,6 +117,7 @@ print(list(combined))  # [('Alice', 25), ('Bob', 30), ('Charlie', 35)]
 ```
 
 ### 5. `enumerate()`
+
 `enumerate()` 函数为可迭代对象中的元素添加索引，并返回一个包含索引和值的迭代器。
 
 ```python
@@ -116,6 +127,7 @@ print(list(indexed_names))  # [(0, 'Alice'), (1, 'Bob'), (2, 'Charlie')]
 ```
 
 ### 6. `all()`
+
 `all()` 函数用于判断可迭代对象中的所有元素是否都为 `True`。
 
 ```python
@@ -124,6 +136,7 @@ print(all(values))  # False
 ```
 
 ### 7. `any()`
+
 `any()` 函数用于判断可迭代对象中的任一元素是否为 `True`。
 
 ```python
@@ -132,6 +145,7 @@ print(any(values))  # True
 ```
 
 ### 8. `sorted()`
+
 `sorted()` 函数返回一个排序后的列表。
 
 ```python
@@ -141,6 +155,7 @@ print(sorted_numbers)  # [1, 2, 5, 5, 6, 9]
 ```
 
 ### 9. `reversed()`
+
 `reversed()` 函数返回一个反转后的迭代器。
 
 ```python
@@ -150,6 +165,7 @@ print(list(reversed_numbers))  # [5, 4, 3, 2, 1]
 ```
 
 ### 10. `zip_longest()`
+
 `zip_longest()` 函数类似于 `zip()`，但可以处理不同长度的可迭代对象。需要导入 `itertools` 模块。
 
 ```python
@@ -161,105 +177,10 @@ combined = zip_longest(names, ages, fillvalue='Unknown')
 print(list(combined))  # [('Alice', 25), ('Bob', 30), ('Unknown', 35)]
 ```
 
-这些高级函数可以帮助你更有效地处理数据，提高代码的简洁性和可读性。：
-
-### 1. `map()`
-`map()` 函数将一个函数应用到一个或多个可迭代对象（如列表、元组）中的每个元素，并返回一个迭代器。
-
-```python
-numbers = [1, 2, 3, 4, 5]
-squared = map(lambda x: x ** 2, numbers)
-print(list(squared))  # [1, 4, 9, 16, 25]
-```
-
-### 2. `filter()`
-`filter()` 函数用于过滤可迭代对象中的元素，只返回使函数结果为 `True` 的元素。
-
-```python
-numbers = [1, 2, 3, 4, 5]
-even_numbers = filter(lambda x: x % 2 == 0, numbers)
-print(list(even_numbers))  # [2, 4]
-```
-
-### 3. `reduce()`
-`reduce()` 函数将可迭代对象中的元素进行累积计算。需要导入 `functools` 模块。
-
-```python
-from functools import reduce
-
-numbers = [1, 2, 3, 4, 5]
-sum = reduce(lambda x, y: x + y, numbers)
-print(sum)  # 15
-```
-
-### 4. `zip()`
-`zip()` 函数将多个可迭代对象中的元素聚合到一个元组中，并返回一个迭代器。
-
-```python
-names = ['Alice', 'Bob', 'Charlie']
-ages = [25, 30, 35]
-combined = zip(names, ages)
-print(list(combined))  # [('Alice', 25), ('Bob', 30), ('Charlie', 35)]
-```
-
-### 5. `enumerate()`
-`enumerate()` 函数为可迭代对象中的元素添加索引，并返回一个包含索引和值的迭代器。
-
-```python
-names = ['Alice', 'Bob', 'Charlie']
-indexed_names = enumerate(names)
-print(list(indexed_names))  # [(0, 'Alice'), (1, 'Bob'), (2, 'Charlie')]
-```
-
-### 6. `all()`
-`all()` 函数用于判断可迭代对象中的所有元素是否都为 `True`。
-
-```python
-values = [True, True, False]
-print(all(values))  # False
-```
-
-### 7. `any()`
-`any()` 函数用于判断可迭代对象中的任一元素是否为 `True`。
-
-```python
-values = [True, False, False]
-print(any(values))  # True
-```
-
-### 8. `sorted()`
-`sorted()` 函数返回一个排序后的列表。
-
-```python
-numbers = [5, 2, 9, 1, 5, 6]
-sorted_numbers = sorted(numbers)
-print(sorted_numbers)  # [1, 2, 5, 5, 6, 9]
-```
-
-### 9. `reversed()`
-`reversed()` 函数返回一个反转后的迭代器。
-
-```python
-numbers = [1, 2, 3, 4, 5]
-reversed_numbers = reversed(numbers)
-print(list(reversed_numbers))  # [5, 4, 3, 2, 1]
-```
-
-### 10. `zip_longest()`
-`zip_longest()` 函数类似于 `zip()`，但可以处理不同长度的可迭代对象。需要导入 `itertools` 模块。
-
-```python
-from itertools import zip_longest
-
-names = ['Alice', 'Bob']
-ages = [25, 30, 35]
-combined = zip_longest(names, ages, fillvalue='Unknown')
-print(list(combined))  # [('Alice', 25), ('Bob', 30), ('Unknown', 35)]
-```
-
-这些高级函数可以帮助你更有效地处理数据，提高代码的简洁性和可读性。
+这些高级函数可以帮助你更有效地处理数据，提高代码的简洁性和可读性这些高级函数可以帮助你更有效地处理数据，提高代码的简洁性和可读性。
 
 ## 3. `*` 和 `**` 是什么？有什么区别？
+
 > [reference](https://docs.python.org/zh-cn/3/tutorial/controlflow.html#unpacking-argument-lists)
 
 在 Python 中，`*` 和 `**` 具有特殊的用途，主要用于函数定义和调用时处理可变数量的参数。
@@ -313,6 +234,7 @@ my_function(1, 2, 3, name="Alice", age=30)
 ```
 
 输出：
+
 ```
 arg: 1
 arg: 2
@@ -348,6 +270,7 @@ my_function(**kwargs)  # 输出 1 2 3
 这使得 Python 函数在处理动态数量的参数时非常灵活。
 
 ## 4. Python 中 `__new__` 和 `__init__` 的执行顺序如何？
+
 > [reference](https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__new__)
 
 在 Python 中，`__new__` 和 `__init__` 是两个特殊的方法，用于对象的创建和初始化。它们的执行顺序如下：
@@ -378,6 +301,7 @@ obj = MyClass(10)
 ```
 
 输出：
+
 ```
 Executing __new__ method
 Executing __init__ method
@@ -386,11 +310,13 @@ Executing __init__ method
 ### 解释
 
 1. **`__new__` 方法**：
+   
    - `__new__` 是一个静态方法，它接受一个类参数 `cls`（代表要创建的类）以及其他位置和关键字参数。
    - 它通过 `super().__new__(cls)` 调用父类的 `__new__` 方法，创建并返回一个新的实例。
    - 在 `__new__` 方法中，可以自定义对象创建的过程。如果需要修改对象的创建过程，应该在这里进行。
 
 2. **`__init__` 方法**：
+   
    - `__init__` 是一个实例方法，它接受 `self`（代表新创建的实例）以及其他位置和关键字参数。
    - 它负责初始化实例的属性和状态。
    - 在 `__init__` 方法中，可以设置对象的初始状态，如设置实例属性。
@@ -423,6 +349,7 @@ print(obj)  # 输出 None
 这就是 `__new__` 和 `__init__` 方法的执行顺序和作用。
 
 ## 5. Python 中的 反射是什么？
+
 在 Python 中，反射（reflection）是指在运行时检查和修改程序的能力。这包括检查对象的类型、属性和方法，以及动态地调用和设置属性和方法。反射使得代码在一定程度上可以自我检查和自我修改，增加了其灵活性和动态性。
 
 以下是 Python 反射的一些常用操作：
@@ -525,6 +452,7 @@ print(obj.value)  # hello
 ### 反射的应用场景
 
 反射在以下场景中非常有用：
+
 - 动态加载模块和类。
 - 动态调用方法和访问属性。
 - 开发插件系统或框架。
@@ -533,14 +461,17 @@ print(obj.value)  # hello
 需要注意的是，虽然反射提供了强大的动态能力，但也可能带来安全和可维护性问题，使用时应谨慎。
 
 ## 6. Python 中的 re模块中的 match() 和 search() 和 findall()三者有什么区别？
+
 > [reference](https://docs.python.org/zh-cn/3/library/re.html#search-vs-match)
 
 在Python的re模块中，search()和match()是两个常用的函数，它们都用于在字符串中查找正则表达式模式的匹配项，但它们在处理字符串和返回匹配项的方式上有所不同。
 
 ### 1. re.match()
+
 `re.match()`函数从字符串的起始位置开始匹配，如果起始位置匹配成功，则返回一个匹配对象；否则返回None。也就是说，re.match()只检查字符串的开头是否与模式匹配。
 
 #### 示例：
+
 ```python
 import re
 
@@ -553,6 +484,7 @@ print(result)  # 输出: None
 ```
 
 ### 2. re.search()
+
 `re.search()`函数会扫描整个字符串，返回第一个匹配的匹配对象。如果字符串中没有匹配项，则返回None。与re.match()不同，re.search()不限于从字符串的开头进行匹配。
 
 #### 示例：
@@ -569,6 +501,7 @@ print(result)  # 输出: None
 ```
 
 ### 3. re.findall()
+
 `re.findall()`是 re 模块中另一个非常有用的函数，它用于在字符串中查找所有非重叠匹配项，并将它们作为一个列表返回。如果字符串中没有匹配项，则返回空列表。
 
 #### 示例：
@@ -595,6 +528,7 @@ print(result)  # 输出: []
 - `re.findall()`：扫描整个字符串，返回所有匹配到的子串作为一个列表（如果没有匹配项，返回空列表）。
 
 ## 7. Python 中 `==` 和 `is` 有什么区别？
+
 > [reference](https://docs.python.org/zh-cn/3/reference/expressions.html#is)
 
 在 Python 中，`==` 和 `is` 都用于比较，但它们在功能和用途上有显著的区别：
@@ -679,14 +613,17 @@ print(a is b)  # 输出: True
 使用 `==` 时，关注的是对象的内容是否相等；使用 `is` 时，关注的是对象的身份是否相同。通常，对于值比较使用 `==`，对于身份比较使用 `is`。
 
 ## 8. Python 中，迭代器（Iterator）和生成器（Generator）的区别是什么？
+
 在 Python 中，迭代器（Iterator）和生成器（Generator）是两个非常重要的概念，它们用于处理序列数据，使代码更高效、简洁。
 
 ### 迭代器（Iterator）
+
 > [reference](https://docs.python.org/zh-cn/3/library/stdtypes.html#iterator-types)
 
 #### 定义
 
 迭代器是一个实现了迭代协议的对象。迭代协议包含两个方法：
+
 - `__iter__()`: 返回迭代器对象自身。
 - `__next__()`: 返回序列中的下一个值，如果没有更多的值，抛出 `StopIteration` 异常。
 
@@ -716,6 +653,7 @@ for item in my_iter:
 在这个示例中，`MyIterator` 类实现了 `__iter__()` 和 `__next__()` 方法，使其成为一个迭代器，可以在 `for` 循环中使用。
 
 ### 生成器（Generator）
+
 > [reference](https://docs.python.org/zh-cn/3/library/stdtypes.html#generator-types)
 
 #### 定义
@@ -740,10 +678,12 @@ for item in gen:
 ### 迭代器和生成器的区别
 
 - **语法**：
+  
   - 迭代器需要实现 `__iter__()` 和 `__next__()` 方法。
   - 生成器通过 `yield` 关键字简化了迭代器的创建，不需要显式地编写 `__iter__()` 和 `__next__()` 方法。
 
 - **用途**：
+  
   - 迭代器可以用于需要自定义迭代逻辑的复杂场景。
   - 生成器更适合用于简单的序列生成，特别是涉及大量数据时，因为它们是惰性评估的（即按需生成值），不需要一次性将所有数据加载到内存中。
 
@@ -779,7 +719,7 @@ print(next(counter))  # 5
        with open(file_path) as file:
            for line in file:
                yield line.strip()
-
+   
    for line in read_large_file('large_file.txt'):
        print(line)
    ```
@@ -787,14 +727,14 @@ print(next(counter))  # 5
 2. **流数据处理**：处理来自网络或其他实时数据源的流数据。
 
 3. **无限序列**：生成无限序列，如斐波那契数列。
-
+   
    ```python
    def fibonacci():
        a, b = 0, 1
        while True:
            yield a
            a, b = b, a + b
-
+   
    fib = fibonacci()
    for _ in range(10):
        print(next(fib))
@@ -803,6 +743,7 @@ print(next(counter))  # 5
 总结来说，迭代器和生成器在 Python 中是强大的工具，帮助开发者高效地处理序列数据，特别是在内存和性能优化方面具有重要意义。生成器通过简化迭代器的创建，使得代码更加简洁和易读。
 
 ## 9. Python 上下文管理器
+
 > [reference](https://docs.python.org/zh-cn/3/reference/datamodel.html#with-statement-context-managers)
 
 Python 的上下文管理器（Context Manager）是一种用于管理资源的协议，它确保资源在使用完毕后能正确地被释放。常见的资源管理包括文件操作、数据库连接、线程锁等。上下文管理器通过 `with` 语句实现，可以确保即使在发生异常时，资源也能被正确释放。
@@ -810,6 +751,7 @@ Python 的上下文管理器（Context Manager）是一种用于管理资源的�
 ### 基本概念
 
 上下文管理器协议包含两个方法：
+
 - `__enter__()`: 进入上下文管理器时调用，返回资源对象。
 - `__exit__(exc_type, exc_val, exc_tb)`: 离开上下文管理器时调用，处理异常并释放资源。`exc_type`、`exc_val` 和 `exc_tb` 分别表示异常的类型、值和追踪信息，如果没有异常，它们的值都是 `None`。
 
@@ -884,17 +826,17 @@ Exiting the context
 上下文管理器在实际应用中非常有用，特别是当你需要确保某些操作完成后释放资源。例如：
 
 1. **文件操作**：确保文件正确关闭。
-
+   
    ```python
    with open('file.txt', 'r') as file:
        content = file.read()
    ```
 
 2. **数据库连接**：确保数据库连接正确关闭。
-
+   
    ```python
    import sqlite3
-
+   
    with sqlite3.connect('example.db') as conn:
        cursor = conn.cursor()
        cursor.execute('SELECT * FROM table')
@@ -902,12 +844,12 @@ Exiting the context
    ```
 
 3. **线程锁**：确保锁在使用后被释放。
-
+   
    ```python
    import threading
-
+   
    lock = threading.Lock()
-
+   
    with lock:
        # Critical section of code
        pass
@@ -948,6 +890,7 @@ Elapsed time: 2.0 seconds
 上下文管理器通过 `with` 语句提供了一种优雅的方式来管理资源，确保资源能被正确地分配和释放。无论是使用内置的上下文管理器，还是创建自定义的上下文管理器，都可以大大简化资源管理的代码，提升代码的安全性和可读性。
 
 ## 10. Python 装饰器
+
 > [reference](https://docs.python.org/zh-cn/3/glossary.html#term-decorator)
 
 Python 装饰器（Decorators）是一种用于修改函数或方法行为的高阶函数。装饰器可以在不修改函数定义的情况下，动态地增加功能。它们通常用于日志记录、访问控制、缓存、性能测量等方面。
@@ -1145,7 +1088,7 @@ print(say_hello.__doc__)   # 输出: Greet someone by name.
 装饰器在实际应用中非常有用，以下是几个常见的使用场景：
 
 1. **日志记录**：记录函数调用的日志。
-
+   
    ```python
    def log_decorator(func):
        @functools.wraps(func)
@@ -1158,7 +1101,7 @@ print(say_hello.__doc__)   # 输出: Greet someone by name.
    ```
 
 2. **权限检查**：检查用户是否有权限执行某个操作。
-
+   
    ```python
    def require_permission(permission):
        def decorator(func):
@@ -1172,7 +1115,7 @@ print(say_hello.__doc__)   # 输出: Greet someone by name.
    ```
 
 3. **缓存**：缓存函数的结果以提高性能。
-
+   
    ```python
    def cache(func):
        cached_results = {}
@@ -1189,6 +1132,7 @@ print(say_hello.__doc__)   # 输出: Greet someone by name.
 装饰器通过简化函数增强和复用，使得代码更为简洁、易读和模块化。理解和善用装饰器可以大大提高代码的质量和开发效率。
 
 ## 11. 浅拷贝 `Shallow Copy` 与深拷贝 `Deep Copy` 的区别？
+
 > [reference](https://docs.python.org/zh-cn/3/library/copy.html#module-copy)
 
 在 Python 中，深拷贝和浅拷贝是两种用于复制对象的方法。它们的主要区别在于它们如何处理嵌套对象（如列表中的列表或字典中的字典）。
@@ -1200,30 +1144,30 @@ print(say_hello.__doc__)   # 输出: Greet someone by name.
 #### 创建浅拷贝的方法
 
 1. **使用 `copy` 模块的 `copy` 函数**：
-
+   
    ```python
    import copy
-
+   
    original_list = [1, 2, [3, 4]]
    shallow_copied_list = copy.copy(original_list)
    ```
 
 2. **使用列表的切片操作**（仅对列表有效）：
-
+   
    ```python
    original_list = [1, 2, [3, 4]]
    shallow_copied_list = original_list[:]
    ```
 
 3. **使用 `list` 构造函数**（仅对列表有效）：
-
+   
    ```python
    original_list = [1, 2, [3, 4]]
    shallow_copied_list = list(original_list)
    ```
 
 4. **使用 `copy` 方法**（适用于列表和字典）：
-
+   
    ```python
    original_list = [1, 2, [3, 4]]
    shallow_copied_list = original_list.copy()
@@ -1265,10 +1209,10 @@ Shallow copied list: [1, 2, [99, 4]]
 #### 创建深拷贝的方法
 
 1. **使用 `copy` 模块的 `deepcopy` 函数**：
-
+   
    ```python
    import copy
-
+   
    original_list = [1, 2, [3, 4]]
    deep_copied_list = copy.deepcopy(original_list)
    ```
@@ -1305,11 +1249,13 @@ Deep copied list: [1, 2, [3, 4]]
 ### 总结
 
 - **浅拷贝**：
+  
   - 创建一个新对象。
   - 新对象中的嵌套对象是对原始对象中嵌套对象的引用。
   - 修改嵌套对象会影响原始对象和浅拷贝对象。
 
 - **深拷贝**：
+  
   - 创建一个新对象。
   - 递归地复制所有嵌套对象。
   - 修改深拷贝中的嵌套对象不会影响原始对象。
@@ -1317,10 +1263,13 @@ Deep copied list: [1, 2, [3, 4]]
 了解这两种拷贝方法的区别对于正确地处理复杂数据结构和避免潜在的 bug 非常重要。
 
 ## 12. Python 中的异步编程和协程（Coroutines）
+
 ### 异步编程
+
 异步编程允许程序在等待 I/O 操作完成时执行其他任务，而不会阻塞主线程。这种编程方式特别适用于 I/O 密集型任务，如网络请求、文件读写等。在 Python 中，异步编程主要通过 asyncio 模块和 async/await 关键字来实现。
 
 ### 协程
+
 协程是 Python 中实现异步编程的一种方式。协程是特殊的生成器，可以在执行过程中暂停，并在稍后恢复。使用 async def 关键字定义协程函数，使用 await 关键字等待可等待对象的结果。
 
 [点击跳转](./Async_and_coroutine.md)
