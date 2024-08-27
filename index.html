@@ -357,7 +357,7 @@
     window.$docsify = {
       name: "🦈Etmorefish",
       // repo: "etmorefish",
-      maxLevel: 6, //最大的内容表级别
+      maxLevel: 3, //最大的内容表级别
       themeColor: '#007be8',
       //loadSidebar: true,//_sidebar.md如果为真，则从_sidebar.md文件加载边栏，否则从指定的路径加载
       loadNavbar: true, //_navbar.md如果为真，则从_navbar.md文件加载navbar ，否则从指定的路径加载
@@ -396,6 +396,16 @@
       },
       // 开启busuanzi
       busuanzi: true,
+
+      // 可视化
+      charty: {
+          // Global theme for chart colours in HEX
+          theme: '#4faee2',
+          // Accepts "dark" or "light"
+          mode: "light",
+          // Boolean to enable or disable debug messages
+          debug: false
+          }
     };
   </script>
   <!-- Docsify v4 -->
@@ -459,6 +469,9 @@
   <script src="static/js/busuanzi.pure.min.js"></script>
   <!-- iconify  https://icon-sets.iconify.desig -->
   <script src="static/js/iconify.min.js"></script>
+  <!-- 可视化 docsify-charty -->
+  <script src="https://cdn.jsdelivr.net/npm/@markbattistella/docsify-charty@latest"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@markbattistella/docsify-charty@latest/dist/docsify-charty.min.css">
 
 </body>
 

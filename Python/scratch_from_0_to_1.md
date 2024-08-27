@@ -10,4 +10,8 @@
 
 - [第4章：函数与模块](/Python/base/chapter4.md)
 
+- [第5章：文件操作](/Python/base/chapter5.md)
+
+- [第6章：](/Python/base/chapter6.md)
+
 <iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:600px;height:800px;" src="https://www.zhixi.com/embed/6798566f#"></iframe>
