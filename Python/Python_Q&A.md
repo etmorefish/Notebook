@@ -807,13 +807,25 @@ True
 
 在 Python 中，迭代器（Iterator）和生成器（Generator）是两个非常重要的概念，它们用于处理序列数据，使代码更高效、简洁。
 
-### 迭代器（Iterator）
+### 迭代器（Iterator）和可迭代对象
 
 > [reference](https://docs.python.org/zh-cn/3/library/stdtypes.html#iterator-types)
 
 #### 定义
 
-迭代器是一个实现了迭代协议的对象。迭代协议包含两个方法：
+**可迭代对象** 是实现了 `__iter__()` 方法的对象，调用该方法会返回一个迭代器。常见的可迭代对象包括列表、元组、字典和字符串。
+
+```python
+# 示例：列表是可迭代对象
+my_list = [1, 2, 3]
+my_iter = iter(my_list)  # 通过 iter() 函数获取迭代器
+
+print(next(my_iter))  # 输出 1
+print(next(my_iter))  # 输出 2
+print(next(my_iter))  # 输出 3
+```
+
+**迭代器**是一个实现了迭代协议的对象。迭代协议包含两个方法：
 
 - `__iter__()`: 返回迭代器对象自身。
 - `__next__()`: 返回序列中的下一个值，如果没有更多的值，抛出 `StopIteration` 异常。
@@ -836,6 +848,7 @@ class MyIterator:
         self.index += 1
         return value
 
+# 使用自定义迭代器
 my_iter = MyIterator([1, 2, 3])
 for item in my_iter:
     print(item)
@@ -849,7 +862,7 @@ for item in my_iter:
 
 #### 定义
 
-生成器是使用 `yield` 关键字定义的函数。生成器函数返回一个生成器对象，该对象支持迭代协议。
+**生成器** 是一种简化迭代器创建的方式，使用 `yield` 关键字替代 `return`，每次调用 `yield` 会返回一个值，并保留生成器函数的状态，下一次从停止的位置继续执行。
 
 #### 示例
 

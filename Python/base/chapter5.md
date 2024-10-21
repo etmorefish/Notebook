@@ -51,23 +51,152 @@ file.close()
 
 ## 2. 文件的路径管理与错误处理
 
-### 2.1 文件路径管理
+---
 
-在处理文件时，正确管理文件路径非常重要。可以使用相对路径或绝对路径来指定文件的位置。Python 的 `os` 和 `pathlib` 模块提供了丰富的工具来管理文件路径。
+#### 1. **小节目标**
 
-**示例：**
+- 掌握如何在 Python 中进行文件路径的操作与管理。
+- 了解常用的文件路径处理模块和方法。
+- 能够正确读取和写入不同路径下的文件。
 
-```python
-import os
+---
 
-# 获取当前工作目录
-current_dir = os.getcwd()
-print(current_dir)
+#### 2. **基础概念**
 
-# 连接路径
-file_path = os.path.join(current_dir, 'example.txt')
-print(file_path)
-```
+- **文件路径**：文件在操作系统中的位置，可以分为**绝对路径**和**相对路径**。
+  - **绝对路径**：从根目录开始，表示文件的完整位置（例如：`C:/Users/maoge/Documents/file.txt`）。
+  - **相对路径**：相对于当前工作目录的文件位置（例如：`./Documents/file.txt`）。
+
+---
+
+#### 3. **Python中的路径管理模块**
+
+- **os 模块**
+  - 提供与操作系统相关的功能，包括路径操作。
+- **os.path 模块**
+  - 包含处理文件路径的工具，例如路径拼接、获取文件名、目录等。
+- **pathlib 模块**
+  - 提供了一个更现代化的、面向对象的方式来处理路径。
+
+---
+
+#### 4. **os 模块中的常用方法**
+
+- **获取当前工作目录**
+  
+  ```python
+  import os
+  print(os.getcwd())  # 获取当前工作目录
+  ```
+
+- **改变当前工作目录**
+  
+  ```python
+  os.chdir('/path/to/directory')  # 改变工作目录
+  ```
+
+- **创建目录**
+  
+  ```python
+  os.mkdir('new_folder')  # 创建单个目录
+  os.makedirs('parent_folder/child_folder')  # 创建多级目录
+  ```
+
+- **检查路径是否存在**
+  
+  ```python
+  os.path.exists('/path/to/file_or_directory')  # 检查路径是否存在
+  ```
+
+---
+
+#### 5. **os.path 模块中的常用方法**
+
+- **拼接路径**
+  
+  ```python
+  file_path = os.path.join('folder', 'file.txt')
+  print(file_path)  # folder/file.txt
+  ```
+
+- **获取文件名和扩展名**
+  
+  ```python
+  file_name = os.path.basename('/path/to/file.txt')
+  file_ext = os.path.splitext('/path/to/file.txt')[1]
+  print(file_name, file_ext)  # file.txt, .txt
+  ```
+
+- **获取目录名**
+  
+  ```python
+  dir_name = os.path.dirname('/path/to/file.txt')
+  print(dir_name)  # /path/to
+  ```
+
+---
+
+#### 6. **pathlib 模块的使用**
+
+- **pathlib.Path 对象**
+  
+  ```python
+  from pathlib import Path
+  path = Path('/path/to/file.txt')
+  print(path.name)  # file.txt
+  print(path.parent)  # /path/to
+  ```
+
+- **路径拼接**
+  
+  ```python
+  new_path = Path('folder') / 'file.txt'
+  print(new_path)  # folder/file.txt
+  ```
+
+- **创建文件和目录**
+  
+  ```python
+  new_dir = Path('new_folder')
+  new_dir.mkdir(parents=True, exist_ok=True)  # 创建目录
+  ```
+
+---
+
+#### 7. **跨平台路径处理**
+
+- **os.path 和 pathlib 都能处理不同操作系统下的路径差异**。
+  - **Windows** 使用反斜杠 (`\`) 作为路径分隔符。
+  - **Linux 和 Mac** 使用正斜杠 (`/`) 作为路径分隔符。
+
+**建议使用 `os.path.join()` 或 `pathlib.Path` 来自动处理不同平台上的路径分隔符。**
+
+---
+
+#### 8. **文件路径管理示例**
+
+- **示例1：读取文件的绝对路径**
+  
+  ```python
+  from pathlib import Path
+  
+  file_path = Path('/Users/maoge/Documents/example.txt')
+  with open(file_path, 'r') as file:
+      content = file.read()
+      print(content)
+  ```
+
+- **示例2：根据相对路径创建并写入文件**
+  
+  ```python
+  from pathlib import Path
+  
+  file_path = Path('output_folder') / 'output.txt'
+  file_path.parent.mkdir(parents=True, exist_ok=True)
+  
+  with open(file_path, 'w') as file:
+      file.write("This is a test file.")
+  ```
 
 ### 2.2 错误处理
 
@@ -126,4 +255,14 @@ with open('example.txt', 'w') as file:
 
 ### 总结
 
-本章介绍了如何在 Python 中进行文件操作，包括文件的读取与写入、路径管理与错误处理、以及使用 `with` 语句管理文件资源。通过这些知识，学习者可以在实际编程中有效处理文件，并确保程序的健壮性。
+本章介绍了如何在 Python 中进行文件操作，包括文件的读取与写入、路径管理与错误处理、以及使用 `with` 语句管理文件资源。
+
+- **os.path** 和 **pathlib** 是管理文件路径的两大主要模块，合理使用它们可以极大简化跨平台的文件操作。
+- 在实际项目中，推荐使用 `pathlib` 进行路径管理，因其代码简洁且具备更强的灵活性。
+
+通过这些知识，学习者可以在实际编程中有效处理文件，并确保程序的健壮性。
+
+### **课后练习**
+
+1. 使用 `os` 模块创建一个嵌套目录（例如：`my_project/data/logs`），并检查目录是否成功创建。
+2. 使用 `pathlib` 模块，编写一个程序，读取当前目录下的所有 `.txt` 文件，并将内容打印出来。
